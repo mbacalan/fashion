@@ -29,18 +29,28 @@
 }
 
 @layer utilities {
+  details.accordion > .accordion-collapse {
+    display: grid !important;
+  }
+
   .accordion-collapse {
-    display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
+    visibility: hidden;
     transition:
       grid-template-rows 300ms ease,
       opacity 300ms ease;
   }
 
-  details[open] .accordion-collapse {
+  details.accordion:not([open]) > .accordion-collapse {
+    pointer-events: none;
+  }
+
+  details.accordion[open] > .accordion-collapse {
     grid-template-rows: 1fr;
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .accordion-collapse > div {
