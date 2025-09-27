@@ -1,0 +1,28 @@
+---
+export interface AccordionItemProps {
+  question: string;
+  defaultOpen?: boolean;
+}
+
+const { question, defaultOpen = false } = Astro.props as AccordionItemProps;
+---
+
+<details
+  class="border-brand-secondary-border group rounded-2xl border bg-white/70 p-6 transition hover:shadow-[0_15px_35px_rgba(94,101,255,0.08)]"
+  open={defaultOpen}
+>
+  <summary
+    class="text-brand-ink flex cursor-pointer items-center justify-between gap-4 text-base leading-snug font-semibold marker:hidden"
+  >
+    <span>{question}</span>
+    <span
+      class="text-brand-primary flex items-center gap-1 text-xl font-semibold"
+    >
+      <span class="group-open:hidden">+</span>
+      <span class="hidden group-open:inline">-</span>
+    </span>
+  </summary>
+  <div class="text-brand-body mt-4 text-sm leading-relaxed">
+    <slot />
+  </div>
+</details>

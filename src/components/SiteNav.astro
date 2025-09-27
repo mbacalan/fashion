@@ -1,6 +1,6 @@
 ---
 export interface SiteNavProps {
-  active?: "home" | "blog" | "consultation";
+  active?: "home" | "blog" | "consultation" | "qa";
 }
 
 const { active = "home" } = Astro.props as SiteNavProps;
@@ -25,6 +25,9 @@ const linkClasses = (key: SiteNavProps["active"]) =>
       <a href="/consultation" class={linkClasses("consultation")}
         >Consultation</a
       >
+    </li>
+    <li>
+      <a href="/q-and-a" class={linkClasses("qa")}>Q&amp;A</a>
     </li>
   </ul>
 </nav>
