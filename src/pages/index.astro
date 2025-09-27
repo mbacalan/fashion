@@ -1,11 +1,375 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  {
+    tagline: "Signature Service 01",
+    title: "Runway Ready Styling",
+    teaser:
+      "Craft a seasonless wardrobe narrative with silhouettes that translate studio vision to everyday wear.",
+    detail:
+      "We storyboard each look, layer textures with intention, and source accessories that bring cohesion to your debut or refresh.",
+    highlights: ["Palette mapping", "Lookbook curation", "Accessory sourcing"],
+    imageLabel: "Placeholder image — Editorial collage",
+    gradient:
+      "from-brand-primary/95 via-brand-primary-pop/85 to-brand-secondary/75",
+  },
+  {
+    tagline: "Signature Service 02",
+    title: "Campaign Creative Direction",
+    teaser:
+      "Build a launch moment with art direction that keeps pace with trend cycles while feeling undeniably you.",
+    detail:
+      "From casting briefs to set styling, we orchestrate visuals that move with rhythm across print, social, and runway.",
+    highlights: ["Concept moodboards", "Casting support", "On-set styling"],
+    imageLabel: "Placeholder image — Studio lighting set",
+    gradient:
+      "from-brand-secondary/85 via-brand-secondary-pop/75 to-brand-primary/70",
+  },
+  {
+    tagline: "Signature Service 03",
+    title: "Personal Wardrobe Residency",
+    teaser:
+      "Invite a stylist-in-residence to evolve your closet into a rotating gallery of confident daily uniforms.",
+    detail:
+      "We chart capsule pairings, digitize your closet, and create ready-to-wear edits aligned with your calendar.",
+    highlights: [
+      "Closet digitization",
+      "Capsule planning",
+      "Tailor coordination",
+    ],
+    imageLabel: "Placeholder image — Wardrobe rail",
+    gradient:
+      "from-brand-primary/85 via-brand-secondary/75 to-brand-primary-glow/70",
+  },
+  {
+    tagline: "Signature Service 04",
+    title: "Event Dressing Concierge",
+    teaser:
+      "Arrive at every gala, panel, or premiere in ensembles that photograph beautifully from any angle.",
+    detail:
+      "We coordinate fittings, manage designer pulls, and style finishing touches so you can step into the spotlight.",
+    highlights: ["Designer pulls", "Tailored fittings", "Travel-ready packing"],
+    imageLabel: "Placeholder image — Evening look flatlay",
+    gradient:
+      "from-brand-secondary/90 via-brand-secondary-pop/70 to-brand-primary/75",
+  },
+];
+
+const contactInterests = [
+  "Editorial Styling",
+  "Personal Wardrobe",
+  "Event Dressing",
+  "Brand Partnerships",
+  "Creative Direction",
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Maison Atelier — Fashion Forward Services">
+  <div class="flex min-h-screen flex-col">
+    <header
+      class="border-brand-rose border-b bg-[rgba(255,255,255,0.82)] px-6 pt-10 pb-8 shadow-[0_25px_45px_rgba(238,72,121,0.08)] backdrop-blur-sm supports-[backdrop-filter]:bg-[rgba(255,255,255,0.75)] sm:px-10"
+    >
+      <div class="mx-auto flex max-w-6xl flex-col gap-8">
+        <div
+          class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="from-brand-primary via-brand-primary-pop to-brand-secondary flex size-14 items-center justify-center rounded-full bg-gradient-to-br text-base font-semibold tracking-[0.35em] text-white uppercase shadow-[0_20px_35px_rgba(94,101,255,0.25)]"
+            >
+              MA
+            </div>
+            <div>
+              <span
+                class="text-brand-primary block text-2xl font-semibold tracking-[0.4em] uppercase"
+                >Maison</span
+              >
+              <span
+                class="text-brand-secondary block text-sm tracking-[0.55em] uppercase"
+                >Atelier</span
+              >
+            </div>
+          </div>
+          <p class="text-brand-body max-w-xl text-sm leading-relaxed">
+            A playful yet polished fashion collective designing wardrobes,
+            campaigns, and couture experiences that stay ahead of every curve.
+          </p>
+        </div>
+        <nav
+          class="border-brand-secondary-border text-brand-ink border-t pt-4 text-xs font-semibold tracking-[0.45em] uppercase"
+        >
+          <ul class="flex gap-6">
+            <li>
+              <a
+                href="#top"
+                class="text-brand-primary hover:text-brand-secondary transition"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="/blog" class="hover:text-brand-secondary transition"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="top" class="flex-1 px-6 pt-12 pb-24 sm:px-10">
+      <section class="mx-auto flex max-w-6xl flex-col gap-16">
+        <div class="max-w-3xl space-y-5">
+          <p
+            class="text-brand-secondary text-xs font-semibold tracking-[0.5em] uppercase"
+          >
+            Our Services
+          </p>
+          <h1
+            class="text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl"
+          >
+            Fashion-forward storytelling for brands and bold individuals.
+          </h1>
+          <p class="text-brand-body text-lg leading-relaxed">
+            Explore curated offerings that blend trend intelligence with
+            timeless composition. Each service flexes to your rhythm, supported
+            by stylists, art directors, and tailors ready to bring the vision to
+            life.
+          </p>
+        </div>
+        <div class="space-y-16">
+          {
+            services.map((service, index) => {
+              const isOdd = index % 2 === 1;
+              return (
+                <article
+                  class={`grid gap-10 rounded-[2.5rem] p-8 shadow-[0_30px_60px_rgba(30,41,59,0.08)] ring-1 backdrop-blur-sm sm:p-10 lg:grid-cols-2 lg:items-center ${
+                    isOdd
+                      ? "bg-brand-secondary-wash ring-brand-secondary-ring"
+                      : "bg-brand-primary-soft ring-brand-rose-ring"
+                  }`}
+                >
+                  <div class={`order-1 ${isOdd ? "lg:order-2" : "lg:order-1"}`}>
+                    <div
+                      class={`relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.gradient} shadow-xl`}
+                    >
+                      <div class="absolute inset-0 flex flex-col justify-between p-6">
+                        <span class="w-max rounded-full bg-white/25 px-4 py-1 text-xs font-semibold tracking-[0.5em] text-white/90 uppercase">
+                          Placeholder
+                        </span>
+                        <span class="text-sm font-medium text-white/80">
+                          {service.imageLabel}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class={`order-2 space-y-5 ${isOdd ? "lg:order-1" : "lg:order-2"}`}
+                  >
+                    <p class="text-brand-secondary text-xs font-semibold tracking-[0.55em] uppercase">
+                      {service.tagline}
+                    </p>
+                    <h2 class="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+                      {service.title}
+                    </h2>
+                    <p class="text-brand-ink-strong text-base leading-relaxed">
+                      {service.teaser}
+                    </p>
+                    <p class="text-brand-ink-muted text-base leading-relaxed">
+                      {service.detail}
+                    </p>
+                    <ul class="flex flex-wrap gap-3">
+                      {service.highlights.map((highlight) => (
+                        <li>
+                          <span class="border-brand-highlight-border bg-brand-highlight-bg text-brand-highlight-text inline-flex items-center rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.35em] uppercase">
+                            {highlight}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })
+          }
+        </div>
+      </section>
+      <section id="contact" class="mx-auto mt-24 w-full max-w-5xl">
+        <div
+          class="border-brand-lavender-ring bg-brand-lavender-bg rounded-[2.5rem] border p-8 shadow-[0_35px_70px_rgba(94,101,255,0.12)] backdrop-blur-sm sm:p-12"
+        >
+          <div class="mb-10 space-y-4">
+            <p
+              class="text-brand-secondary text-xs font-semibold tracking-[0.55em] uppercase"
+            >
+              Let's Connect
+            </p>
+            <h2
+              class="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl"
+            >
+              Shape your next fashion story with us.
+            </h2>
+            <p class="text-brand-ink-muted text-base leading-relaxed">
+              Tell us a little about you, your audience, and the moments you
+              want to design. We'll craft a tailored proposal within two
+              business days.
+            </p>
+          </div>
+          <form method="post" class="grid gap-10">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <label
+                class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+              >
+                <span>First name</span>
+                <input
+                  type="text"
+                  name="first-name"
+                  placeholder="Sasha"
+                  class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+                />
+              </label>
+              <label
+                class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+              >
+                <span>Surname</span>
+                <input
+                  type="text"
+                  name="surname"
+                  placeholder="Ruiz"
+                  class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+                />
+              </label>
+              <label
+                class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+              >
+                <span>Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+                />
+              </label>
+              <label
+                class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+              >
+                <span>Occupation</span>
+                <input
+                  type="text"
+                  name="occupation"
+                  placeholder="Creative director"
+                  class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+                />
+              </label>
+              <label
+                class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+              >
+                <span>Location</span>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Barcelona, ES"
+                  class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+                />
+              </label>
+              <label
+                class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+              >
+                <span>Age</span>
+                <input
+                  type="number"
+                  name="age"
+                  placeholder="32"
+                  class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+                  min="0"
+                />
+              </label>
+            </div>
+            <div>
+              <span class="mb-3 block text-sm font-medium text-neutral-950"
+                >Services of interest</span
+              >
+              <div class="flex flex-wrap gap-3">
+                {
+                  contactInterests.map((interest) => (
+                    <label class="cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="services"
+                        value={interest}
+                        class="peer sr-only"
+                      />
+                      <span class="border-brand-secondary-ring bg-brand-secondary-soft text-brand-secondary-ink peer-checked:border-brand-secondary peer-checked:bg-brand-secondary peer-focus-visible:outline-brand-secondary/60 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.35em] uppercase transition-colors duration-150 ease-out peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
+                        {interest}
+                      </span>
+                    </label>
+                  ))
+                }
+              </div>
+            </div>
+            <label
+              class="flex flex-col gap-2 text-sm font-medium text-neutral-950"
+            >
+              <span
+                >Additional information <span class="text-slate-500"
+                  >(optional)</span
+                ></span
+              >
+              <textarea
+                name="additional-info"
+                rows="4"
+                placeholder="Share timelines, inspirations, or collaborators we should meet."
+                class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+              ></textarea>
+            </label>
+            <div class="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-[0.4em] text-white uppercase shadow-[0_20px_35px_rgba(238,72,121,0.28)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              >
+                Request consult
+              </button>
+              <span class="text-brand-body text-xs tracking-[0.3em] uppercase"
+                >48-hour response time</span
+              >
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-neutral-950 px-6 py-12 text-neutral-100 sm:px-10">
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="space-y-2">
+          <p
+            class="text-brand-primary text-xs font-semibold tracking-[0.55em] uppercase"
+          >
+            Maison Atelier
+          </p>
+          <p class="text-sm text-neutral-200">
+            Playful expression meets professional polish for fashion-first
+            brands.
+          </p>
+        </div>
+        <ul
+          class="flex flex-wrap gap-4 text-sm font-medium tracking-[0.35em] text-neutral-300 uppercase"
+        >
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">Instagram</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">TikTok</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">Pinterest</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
 </Layout>
