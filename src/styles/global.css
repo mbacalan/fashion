@@ -27,3 +27,23 @@
   --color-brand-ink-muted: #3a3d52;
   --color-brand-secondary-ink: #3c40b9;
 }
+
+@layer utilities {
+  .accordion-collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 300ms ease,
+      opacity 300ms ease;
+  }
+
+  details[open] .accordion-collapse {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .accordion-collapse > div {
+    overflow: hidden;
+  }
+}
