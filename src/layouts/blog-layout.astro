@@ -1,0 +1,134 @@
+---
+import Layout from "./Layout.astro";
+
+const {
+  title = "Maison Atelier — Journal",
+  heroTag = "Journal",
+  heroTitle = "Notes from the atelier floor",
+  heroDescription = "Stories, trend debriefs, and behind-the-scenes glimpses into how we build fashion moments that feel effortless.",
+  heroAccent,
+  activeNav = "blog",
+} = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="flex min-h-screen flex-col">
+    <header
+      class="border-brand-rose border-b bg-[rgba(255,255,255,0.82)] px-6 pt-10 pb-10 shadow-[0_25px_45px_rgba(238,72,121,0.08)] backdrop-blur-sm supports-[backdrop-filter]:bg-[rgba(255,255,255,0.75)] sm:px-10"
+    >
+      <div class="mx-auto flex max-w-6xl flex-col gap-10">
+        <div
+          class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="from-brand-primary via-brand-primary-pop to-brand-secondary flex size-14 items-center justify-center rounded-full bg-gradient-to-br text-base font-semibold tracking-[0.35em] text-white uppercase shadow-[0_20px_35px_rgba(94,101,255,0.25)]"
+            >
+              MA
+            </div>
+            <div>
+              <span
+                class="text-brand-primary block text-2xl font-semibold tracking-[0.4em] uppercase"
+                >Maison</span
+              >
+              <span
+                class="text-brand-secondary block text-sm tracking-[0.55em] uppercase"
+                >Atelier</span
+              >
+            </div>
+          </div>
+          <p class="text-brand-body max-w-xl text-sm leading-relaxed">
+            A playful yet polished fashion collective designing wardrobes,
+            campaigns, and couture experiences that stay ahead of every curve.
+          </p>
+        </div>
+        <nav
+          class="border-brand-secondary-border text-brand-ink border-t pt-4 text-xs font-semibold tracking-[0.45em] uppercase"
+        >
+          <ul class="flex gap-6">
+            <li>
+              <a
+                href="/"
+                class={`transition hover:text-brand-secondary ${activeNav === "home" ? "text-brand-primary" : ""}`}
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog"
+                class={`transition hover:text-brand-secondary ${activeNav === "blog" ? "text-brand-primary" : ""}`}
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="flex-1 px-6 pt-14 pb-20 sm:px-10">
+      <section class="mx-auto flex w-full max-w-4xl flex-col gap-12">
+        <div class="space-y-6">
+          <p
+            class="text-brand-secondary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.45em] uppercase"
+          >
+            <span
+              class="bg-brand-secondary-wash text-brand-secondary-ink rounded-full px-4 py-2"
+            >
+              {heroTag}
+            </span>
+            {heroAccent && <span class="text-brand-body">{heroAccent}</span>}
+          </p>
+          <div class="space-y-4">
+            <h1
+              class="text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl"
+            >
+              {heroTitle}
+            </h1>
+            <p class="text-brand-body max-w-2xl text-lg leading-relaxed">
+              {heroDescription}
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-10">
+          <slot />
+        </div>
+      </section>
+    </main>
+    <footer class="bg-neutral-950 px-6 py-12 text-neutral-100 sm:px-10">
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="space-y-2">
+          <p
+            class="text-brand-primary text-xs font-semibold tracking-[0.55em] uppercase"
+          >
+            Maison Atelier
+          </p>
+          <p class="text-sm text-neutral-200">
+            Playful expression meets professional polish for fashion-first
+            brands.
+          </p>
+        </div>
+        <ul
+          class="flex flex-wrap gap-4 text-sm font-medium tracking-[0.35em] text-neutral-300 uppercase"
+        >
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">Instagram</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">TikTok</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">Pinterest</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</Layout>
