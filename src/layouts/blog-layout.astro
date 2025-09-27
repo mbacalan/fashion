@@ -1,5 +1,15 @@
 ---
+import SiteNav from "../components/SiteNav.astro";
 import Layout from "./Layout.astro";
+
+interface BlogLayoutProps {
+  title?: string;
+  heroTag?: string;
+  heroTitle?: string;
+  heroDescription?: string;
+  heroAccent?: string;
+  activeNav?: "home" | "blog" | "consultation";
+}
 
 const {
   title = "Maison Atelier — Journal",
@@ -8,7 +18,7 @@ const {
   heroDescription = "Stories, trend debriefs, and behind-the-scenes glimpses into how we build fashion moments that feel effortless.",
   heroAccent,
   activeNav = "blog",
-} = Astro.props;
+} = Astro.props as BlogLayoutProps;
 ---
 
 <Layout title={title}>
@@ -42,28 +52,7 @@ const {
             campaigns, and couture experiences that stay ahead of every curve.
           </p>
         </div>
-        <nav
-          class="border-brand-secondary-border text-brand-ink border-t pt-4 text-xs font-semibold tracking-[0.45em] uppercase"
-        >
-          <ul class="flex gap-6">
-            <li>
-              <a
-                href="/"
-                class={`transition hover:text-brand-secondary ${activeNav === "home" ? "text-brand-primary" : ""}`}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/blog"
-                class={`transition hover:text-brand-secondary ${activeNav === "blog" ? "text-brand-primary" : ""}`}
-              >
-                Blog
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <SiteNav active={activeNav} />
       </div>
     </header>
     <main class="flex-1 px-6 pt-14 pb-20 sm:px-10">

@@ -1,0 +1,30 @@
+---
+export interface SiteNavProps {
+  active?: "home" | "blog" | "consultation";
+}
+
+const { active = "home" } = Astro.props as SiteNavProps;
+
+const linkClasses = (key: SiteNavProps["active"]) =>
+  `transition hover:text-brand-secondary ${
+    active === key ? "text-brand-primary" : ""
+  }`;
+---
+
+<nav
+  class="border-brand-secondary-border text-brand-ink border-t pt-4 text-xs font-semibold tracking-[0.45em] uppercase"
+>
+  <ul class="flex gap-6">
+    <li>
+      <a href="/" class={linkClasses("home")}>Home</a>
+    </li>
+    <li>
+      <a href="/blog" class={linkClasses("blog")}>Blog</a>
+    </li>
+    <li>
+      <a href="/consultation" class={linkClasses("consultation")}
+        >Consultation</a
+      >
+    </li>
+  </ul>
+</nav>

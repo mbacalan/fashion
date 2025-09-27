@@ -1,0 +1,122 @@
+---
+export interface ConsultationFormProps {
+  interests?: string[];
+  method?: string;
+}
+
+const {
+  interests = [
+    "Editorial Styling",
+    "Personal Wardrobe",
+    "Event Dressing",
+    "Brand Partnerships",
+    "Creative Direction",
+  ],
+  method = "post",
+} = Astro.props as ConsultationFormProps;
+---
+
+<form method={method} class="grid gap-10">
+  <div class="grid gap-6 sm:grid-cols-2">
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span>First name</span>
+      <input
+        type="text"
+        name="first-name"
+        placeholder="Sasha"
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      />
+    </label>
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span>Surname</span>
+      <input
+        type="text"
+        name="surname"
+        placeholder="Ruiz"
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      />
+    </label>
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span>Email</span>
+      <input
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      />
+    </label>
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span>Occupation</span>
+      <input
+        type="text"
+        name="occupation"
+        placeholder="Creative director"
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      />
+    </label>
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span>Location</span>
+      <input
+        type="text"
+        name="location"
+        placeholder="Barcelona, ES"
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      />
+    </label>
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span>Age</span>
+      <input
+        type="number"
+        name="age"
+        placeholder="32"
+        min="0"
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      />
+    </label>
+  </div>
+  <div>
+    <span class="mb-3 block text-sm font-medium text-neutral-950"
+      >Services of interest</span
+    >
+    <div class="flex flex-wrap gap-3">
+      {
+        interests.map((interest) => (
+          <label class="cursor-pointer">
+            <input
+              type="checkbox"
+              name="services"
+              value={interest}
+              class="peer sr-only"
+            />
+            <span class="border-brand-secondary-ring bg-brand-secondary-soft text-brand-secondary-ink peer-checked:border-brand-secondary peer-checked:bg-brand-secondary peer-focus-visible:outline-brand-secondary/60 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.35em] uppercase transition-colors duration-150 ease-out peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
+              {interest}
+            </span>
+          </label>
+        ))
+      }
+    </div>
+  </div>
+  <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+    <span
+      >Additional information <span class="text-slate-500">(optional)</span
+      ></span
+    >
+    <textarea
+      name="additional-info"
+      rows="4"
+      placeholder="Share timelines, inspirations, or collaborators we should meet."
+      class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+    ></textarea>
+  </label>
+  <div class="flex flex-wrap items-center gap-4">
+    <button
+      type="submit"
+      class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-[0.4em] text-white uppercase shadow-[0_20px_35px_rgba(238,72,121,0.28)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      Request consult
+    </button>
+    <span class="text-brand-body text-xs tracking-[0.3em] uppercase"
+      >48-hour response time</span
+    >
+  </div>
+</form>
