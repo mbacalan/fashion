@@ -1,0 +1,101 @@
+---
+import ConsultationForm from "../components/ConsultationForm.astro";
+import SiteNav from "../components/SiteNav.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Maison Atelier — Consultation">
+  <div class="flex min-h-screen flex-col">
+    <header
+      class="border-brand-rose border-b bg-[rgba(255,255,255,0.82)] px-6 pt-10 pb-8 shadow-[0_25px_45px_rgba(238,72,121,0.08)] backdrop-blur-sm supports-[backdrop-filter]:bg-[rgba(255,255,255,0.75)] sm:px-10"
+    >
+      <div class="mx-auto flex max-w-6xl flex-col gap-8">
+        <div
+          class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="from-brand-primary via-brand-primary-pop to-brand-secondary flex size-14 items-center justify-center rounded-full bg-gradient-to-br text-base font-semibold tracking-[0.35em] text-white uppercase shadow-[0_20px_35px_rgba(94,101,255,0.25)]"
+            >
+              MA
+            </div>
+            <div>
+              <span
+                class="text-brand-primary block text-2xl font-semibold tracking-[0.4em] uppercase"
+                >Maison</span
+              >
+              <span
+                class="text-brand-secondary block text-sm tracking-[0.55em] uppercase"
+                >Atelier</span
+              >
+            </div>
+          </div>
+          <p class="text-brand-body max-w-xl text-sm leading-relaxed">
+            A playful yet polished fashion collective designing wardrobes,
+            campaigns, and couture experiences that stay ahead of every curve.
+          </p>
+        </div>
+        <SiteNav active="consultation" />
+      </div>
+    </header>
+    <main class="flex-1 px-6 pt-12 pb-24 sm:px-10">
+      <section class="mx-auto flex w-full max-w-4xl flex-col gap-12">
+        <div class="space-y-5">
+          <p
+            class="text-brand-secondary text-xs font-semibold tracking-[0.55em] uppercase"
+          >
+            Consultation Request
+          </p>
+          <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
+            Tell us about your next fashion moment.
+          </h1>
+          <p class="text-brand-body text-lg leading-relaxed">
+            Share your timeline, audience, and styling ambitions. Our team will
+            review every detail and follow up within two business days with a
+            tailored proposal and availability.
+          </p>
+        </div>
+        <div
+          class="border-brand-lavender-ring bg-brand-lavender-bg rounded-[2.5rem] border p-8 shadow-[0_35px_70px_rgba(94,101,255,0.12)] backdrop-blur-sm sm:p-12"
+        >
+          <ConsultationForm />
+        </div>
+      </section>
+    </main>
+    <footer class="bg-neutral-950 px-6 py-12 text-neutral-100 sm:px-10">
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="space-y-2">
+          <p
+            class="text-brand-primary text-xs font-semibold tracking-[0.55em] uppercase"
+          >
+            Maison Atelier
+          </p>
+          <p class="text-sm text-neutral-200">
+            Playful expression meets professional polish for fashion-first
+            brands.
+          </p>
+        </div>
+        <ul
+          class="flex flex-wrap gap-4 text-sm font-medium tracking-[0.35em] text-neutral-300 uppercase"
+        >
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">Instagram</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">TikTok</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">Pinterest</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-brand-primary transition">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</Layout>
