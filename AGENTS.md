@@ -10,7 +10,7 @@ Use `npm run dev` for the local development server (hot reload on `http://localh
 
 ## Coding Style & Naming Conventions
 
-Astro components should be formatted with two-space indentation and lowercase-kebab filenames (`Welcome.astro` is the exception kept for legacy parity). Favor Tailwind v4 utility classes and mobile-first patterns; avoid arbitrary values unless a design token does not exist. Co-locate component-specific assets and keep shared utilities in clearly named files. Prefer semantic HTML and remove unused imports before pushing.
+All files and folders must be in kebab-case. Favor Tailwind v4 utility classes and mobile-first patterns; avoid arbitrary values unless a design token does not exist. Co-locate component-specific assets and keep shared utilities in clearly named files. Prefer semantic HTML and remove unused imports before pushing.
 
 ## Testing Guidelines
 
