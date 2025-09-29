@@ -1,7 +1,7 @@
 ---
 import AccordionItem from "../components/accordion-item.astro";
 import ConsultationForm from "../components/consultation-form.astro";
-import Header from "../components/header.astro";
+import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/layout.astro";
 
 const faqs = [
@@ -35,42 +35,36 @@ const faqs = [
 ---
 
 <Layout title="White Poplin Shirt — Q&A">
-  <div class="flex min-h-screen flex-col">
-    <Header active="qa" />
+  <PageWrapper active="qa">
+    <section class="flex flex-col gap-12">
+      <div class="space-y-5">
+        <p
+          class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase"
+        >
+          Questions &amp; Answers
+        </p>
+        <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
+          Everything you need to start a project with us.
+        </h1>
+        <p class="text-brand-body text-lg leading-relaxed">
+          We’ve collected the questions clients ask most when planning their
+          next campaign, wardrobe evolution, or collaborative editorial.
+        </p>
+      </div>
 
-    <main class="flex-1 px-6 pt-12 pb-24 sm:px-10">
-      <section class="mx-auto flex w-full max-w-4xl flex-col gap-12">
-        <div class="space-y-5">
-          <p
-            class="text-brand-secondary text-xs font-medium tracking-[0.3em] uppercase"
-          >
-            Questions & Answers
-          </p>
-          <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
-            Everything you need to start a project with us.
-          </h1>
-          <p class="text-brand-body text-lg leading-relaxed">
-            We’ve collected the questions clients ask most when planning their
-            next campaign, wardrobe evolution, or collaborative editorial.
-          </p>
-        </div>
-        <ul class="space-y-4">
-          {
-            faqs.map((faq, index) => (
-              <li>
-                <AccordionItem
-                  question={faq.question}
-                  defaultOpen={index === 0}
-                >
-                  <p>{faq.answer}</p>
-                </AccordionItem>
-              </li>
-            ))
-          }
-        </ul>
+      <ul class="space-y-4">
+        {
+          faqs.map((faq, index) => (
+            <li>
+              <AccordionItem question={faq.question} defaultOpen={index === 0}>
+                <p>{faq.answer}</p>
+              </AccordionItem>
+            </li>
+          ))
+        }
+      </ul>
 
-        <ConsultationForm />
-      </section>
-    </main>
-  </div>
+      <ConsultationForm />
+    </section>
+  </PageWrapper>
 </Layout>

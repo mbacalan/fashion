@@ -1,33 +1,29 @@
 ---
 import ConsultationForm from "../components/consultation-form.astro";
-import Header from "../components/header.astro";
+import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/layout.astro";
 ---
 
 <Layout title="White Poplin Shirt — Consultation">
-  <div class="flex min-h-screen flex-col">
-    <Header active="consultation" />
+  <PageWrapper active="consultation">
+    <section class="flex flex-col gap-12">
+      <div class="space-y-5">
+        <p
+          class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase"
+        >
+          Consultation Request
+        </p>
+        <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
+          Tell us about your next fashion moment.
+        </h1>
+        <p class="text-brand-body text-lg leading-relaxed">
+          Share your timeline, audience, and styling ambitions. Our team will
+          review every detail and follow up within two business days with a
+          tailored proposal and availability.
+        </p>
+      </div>
 
-    <main class="flex-1 px-6 pt-12 pb-24 sm:px-10">
-      <section class="mx-auto flex w-full max-w-4xl flex-col gap-12">
-        <div class="space-y-5">
-          <p
-            class="text-brand-secondary text-xs font-medium tracking-[0.3em] uppercase"
-          >
-            Consultation Request
-          </p>
-          <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
-            Tell us about your next fashion moment.
-          </h1>
-          <p class="text-brand-body text-lg leading-relaxed">
-            Share your timeline, audience, and styling ambitions. Our team will
-            review every detail and follow up within two business days with a
-            tailored proposal and availability.
-          </p>
-        </div>
-
-        <ConsultationForm />
-      </section>
-    </main>
-  </div>
+      <ConsultationForm />
+    </section>
+  </PageWrapper>
 </Layout>
