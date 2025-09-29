@@ -17,11 +17,62 @@ import ConsultationForm from "../components/consultation-form.astro";
             About
           </p>
           <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
-            Everything you need to start a project with us.
+            Meet the stylists shaping your next chapter.
           </h1>
-
-          <ConsultationForm />
+          <p class="text-brand-body text-lg leading-relaxed">
+            From the first mood board to final fittings, White Poplin Shirt blends runway
+            instincts with brand strategy so every collaboration feels intentional,
+            expressive, and unmistakably yours.
+          </p>
         </div>
+
+        <article
+          class="grid gap-10 rounded-3xl bg-white p-8 shadow-[0_16px_40px_rgba(31,42,36,0.08)] ring-1 ring-brand-rose-ring/80 sm:p-10 lg:grid-cols-2 lg:items-center"
+        >
+          <div
+            class="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-primary via-brand-primary-pop/70 to-brand-secondary shadow-xl"
+          >
+            <div class="absolute inset-0 flex flex-col justify-between p-6">
+              <span class="w-max rounded-full bg-white/25 px-4 py-1 text-xs font-medium tracking-[0.28em] text-white/90 uppercase">
+                Studio
+              </span>
+              <span class="text-sm font-medium text-white/80">
+                Behind-the-scenes moodboard collage
+              </span>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <p class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase">
+              Our Practice
+            </p>
+            <h2 class="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+              Tailored collaboration for every narrative arc.
+            </h2>
+            <p class="text-brand-ink-strong text-base leading-relaxed">
+              We immerse ourselves in your brand, building shared language across
+              mood boards, fittings, and campaign choreography. Each engagement is
+              grounded in research, trend fluency, and production-ready detail so our
+              teams move decisively together.
+            </p>
+            <p class="text-brand-ink-muted text-base leading-relaxed">
+              Whether you need full look development or a supporting stylistic eye, we
+              assemble the right partners and deliver direction that scales from
+              runway to retail. Our community of makers keeps craftsmanship at the
+              center, ensuring every garment, prop, and frame advances the story.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a
+                href="mailto:hello@whitepoplin.studio"
+                class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-[0.28em] text-white uppercase shadow-[0_18px_32px_rgba(31,42,36,0.12)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              >
+                Email hello@whitepoplin.studio
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <ConsultationForm />
       </section>
     </main>
   </div>
