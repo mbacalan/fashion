@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Figtree';
+  src: url('/fonts/figtree-variable.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('/fonts/figtree-italic-variable.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
+  --font-sans: 'Figtree', 'sans-serif';
+
   --color-brand-primary: #ee4879;
   --color-brand-primary-pop: #ff80b4;
   --color-brand-primary-glow: #f78db7;
