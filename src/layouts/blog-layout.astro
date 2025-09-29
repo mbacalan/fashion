@@ -24,7 +24,7 @@ const {
 <Layout title={title}>
   <div class="flex min-h-screen flex-col">
     <header
-      class="border-brand-rose border-b bg-[rgba(255,255,255,0.82)] px-6 pt-10 pb-8 shadow-[0_25px_45px_rgba(238,72,121,0.08)] backdrop-blur-sm supports-[backdrop-filter]:bg-[rgba(255,255,255,0.75)] sm:px-10"
+      class="border-brand-rose border-b bg-white px-6 pt-10 pb-8 shadow-[0_12px_28px_rgba(31,42,36,0.08)] sm:px-10"
     >
       <div class="mx-auto flex max-w-6xl flex-col gap-8">
         <div
@@ -32,17 +32,17 @@ const {
         >
           <div class="flex items-center gap-4">
             <div
-              class="from-brand-primary via-brand-primary-pop to-brand-secondary flex size-14 items-center justify-center rounded-full bg-gradient-to-br text-base font-semibold tracking-[0.35em] text-white uppercase shadow-[0_20px_35px_rgba(94,101,255,0.25)]"
+              class="flex size-12 items-center justify-center rounded-full border border-brand-primary/30 bg-brand-primary-soft text-sm font-semibold tracking-[0.22em] text-brand-primary uppercase"
             >
               MA
             </div>
             <div>
               <span
-                class="text-brand-primary block text-2xl font-semibold tracking-[0.4em] uppercase"
+                class="text-brand-primary block text-2xl font-semibold tracking-[0.24em] uppercase"
                 >Maison</span
               >
               <span
-                class="text-brand-secondary block text-sm tracking-[0.55em] uppercase"
+                class="text-brand-secondary block text-sm tracking-[0.22em] uppercase"
                 >Atelier</span
               >
             </div>
@@ -59,10 +59,10 @@ const {
       <section class="mx-auto flex w-full max-w-4xl flex-col gap-12">
         <div class="space-y-6">
           <p
-            class="text-brand-secondary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.45em] uppercase"
+            class="text-brand-secondary inline-flex items-center gap-2 text-xs font-medium tracking-[0.26em] uppercase"
           >
             <span
-              class="bg-brand-secondary-wash text-brand-secondary-ink rounded-full px-4 py-2"
+              class="bg-brand-secondary-wash text-brand-secondary-ink rounded-full px-3.5 py-1.5"
             >
               {heroTag}
             </span>
@@ -74,7 +74,7 @@ const {
             >
               {heroTitle}
             </h1>
-            <p class="text-brand-body max-w-2xl text-lg leading-relaxed">
+            <p class="text-brand-body max-w-2xl text-base leading-relaxed sm:text-lg">
               {heroDescription}
             </p>
           </div>
@@ -90,7 +90,7 @@ const {
       >
         <div class="space-y-2">
           <p
-            class="text-brand-primary text-xs font-semibold tracking-[0.55em] uppercase"
+            class="text-brand-primary text-xs font-semibold tracking-[0.3em] uppercase"
           >
             Maison Atelier
           </p>
@@ -100,7 +100,7 @@ const {
           </p>
         </div>
         <ul
-          class="flex flex-wrap gap-4 text-sm font-medium tracking-[0.35em] text-neutral-300 uppercase"
+          class="flex flex-wrap gap-4 text-sm font-medium tracking-[0.26em] text-neutral-300 uppercase"
         >
           <li>
             <a href="#" class="hover:text-brand-primary transition">Instagram</a

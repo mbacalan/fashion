@@ -19,31 +19,31 @@
 @theme {
   --font-sans: 'Figtree', 'sans-serif';
 
-  --color-brand-primary: #ee4879;
-  --color-brand-primary-pop: #ff80b4;
-  --color-brand-primary-glow: #f78db7;
-  --color-brand-primary-soft: #fdf3fa;
-  --color-brand-primary-deep: #d93c6c;
-  --color-brand-secondary: #5e65ff;
-  --color-brand-secondary-pop: #8f96ff;
-  --color-brand-secondary-border: #d9dcff;
-  --color-brand-secondary-ring: #cfd6ff;
-  --color-brand-secondary-soft: #eef0ff;
-  --color-brand-secondary-wash: #f1f5ff;
-  --color-brand-background-start: #fdf2f8;
-  --color-brand-background-end: #eef2ff;
-  --color-brand-rose: #f4d3e1;
-  --color-brand-rose-ring: #f9cade;
-  --color-brand-lavender-ring: #e4d7ff;
-  --color-brand-lavender-bg: #fdf7ff;
-  --color-brand-highlight-border: #f6aac6;
-  --color-brand-highlight-bg: #fde0ec;
-  --color-brand-highlight-text: #c52562;
-  --color-brand-ink: #1b1d2a;
-  --color-brand-body: #4b4d5c;
-  --color-brand-ink-strong: #272a3f;
-  --color-brand-ink-muted: #3a3d52;
-  --color-brand-secondary-ink: #3c40b9;
+  --color-brand-primary: #2f6f55;
+  --color-brand-primary-pop: #4ca47a;
+  --color-brand-primary-glow: #79c6a3;
+  --color-brand-primary-soft: #e8f5ee;
+  --color-brand-primary-deep: #1f4f3b;
+  --color-brand-secondary: #ad7a33;
+  --color-brand-secondary-pop: #d0a456;
+  --color-brand-secondary-border: #f0ddbb;
+  --color-brand-secondary-ring: #e4c88f;
+  --color-brand-secondary-soft: #fbf1dd;
+  --color-brand-secondary-wash: #f9ecd1;
+  --color-brand-background-start: #f1f6f1;
+  --color-brand-background-end: #fff5e6;
+  --color-brand-rose: #d6ecd8;
+  --color-brand-rose-ring: #c6e2c8;
+  --color-brand-lavender-ring: #ece2c7;
+  --color-brand-lavender-bg: #faf4e4;
+  --color-brand-highlight-border: #7db78f;
+  --color-brand-highlight-bg: #e5f4ea;
+  --color-brand-highlight-text: #2f6f55;
+  --color-brand-ink: #1f2a24;
+  --color-brand-body: #3d4a43;
+  --color-brand-ink-strong: #24352d;
+  --color-brand-ink-muted: #2f463b;
+  --color-brand-secondary-ink: #8a5c14;
 }
 
 @layer utilities {
