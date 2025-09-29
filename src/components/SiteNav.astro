@@ -1,9 +1,9 @@
 ---
-export interface SiteNavProps {
-  active?: "home" | "blog" | "consultation" | "qa";
+interface SiteNavProps {
+  active: "home" | "qa" | "about" | "consultation";
 }
 
-const { active = "home" } = Astro.props as SiteNavProps;
+const { active } = Astro.props as SiteNavProps;
 
 const linkClasses = (key: SiteNavProps["active"]) =>
   [
@@ -15,22 +15,22 @@ const linkClasses = (key: SiteNavProps["active"]) =>
 ---
 
 <nav
-  class="text-brand-body text-[0.78rem] font-medium uppercase tracking-[0.22em]"
+  class="text-brand-body text-[0.78rem] font-medium tracking-[0.22em] uppercase"
 >
-  <ul class="flex flex-wrap gap-3 sm:gap-4 sm:justify-end">
+  <ul class="flex flex-wrap gap-3 sm:justify-end sm:gap-4">
     <li>
       <a href="/" class={linkClasses("home")}>Home</a>
     </li>
     <li>
-      <a href="/blog" class={linkClasses("blog")}>Blog</a>
+      <a href="/about" class={linkClasses("about")}>About</a>
+    </li>
+    <li>
+      <a href="/q-and-a" class={linkClasses("qa")}>Q&amp;A</a>
     </li>
     <li>
       <a href="/consultation" class={linkClasses("consultation")}
         >Consultation</a
       >
-    </li>
-    <li>
-      <a href="/q-and-a" class={linkClasses("qa")}>Q&amp;A</a>
     </li>
   </ul>
 </nav>

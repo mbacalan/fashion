@@ -31,7 +31,7 @@ const {
       >
         <div class="flex items-center gap-4">
           <div
-            class="flex size-12 items-center justify-center rounded-full border border-brand-primary/30 bg-brand-primary-soft text-sm font-semibold tracking-[0.22em] text-brand-primary uppercase"
+            class="border-brand-primary/30 bg-brand-primary-soft text-brand-primary flex size-12 items-center justify-center rounded-full border text-sm font-semibold tracking-[0.22em] uppercase"
           >
             MA
           </div>
@@ -46,7 +46,7 @@ const {
             >
           </div>
         </div>
-        <div class="w-full sm:w-auto sm:flex sm:justify-end">
+        <div class="w-full sm:flex sm:w-auto sm:justify-end">
           <SiteNav active={activeNav} />
         </div>
       </div>
@@ -70,7 +70,9 @@ const {
             >
               {heroTitle}
             </h1>
-            <p class="text-brand-body max-w-2xl text-base leading-relaxed sm:text-lg">
+            <p
+              class="text-brand-body max-w-2xl text-base leading-relaxed sm:text-lg"
+            >
               {heroDescription}
             </p>
           </div>

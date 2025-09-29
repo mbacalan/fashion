@@ -1,6 +1,6 @@
 ---
 import ConsultationForm from "../components/ConsultationForm.astro";
-import SiteNav from "../components/SiteNav.astro";
+import Header from "../components/header.astro";
 import Layout from "../layouts/Layout.astro";
 
 const services = [
@@ -27,40 +27,14 @@ const services = [
     imageLabel: "Placeholder image — Studio lighting set",
     gradient:
       "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
-  }
+  },
 ];
 ---
 
 <Layout title="Maison Atelier — Fashion Forward Services">
   <div class="flex min-h-screen flex-col">
-    <header
-      class="border-brand-rose border-b bg-white px-6 pt-10 pb-8 shadow-[0_12px_28px_rgba(31,42,36,0.08)] sm:px-10"
-    >
-      <div
-        class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
-      >
-        <div class="flex items-center gap-4">
-          <div
-            class="flex size-12 items-center justify-center rounded-full border border-brand-primary/30 bg-brand-primary-soft text-sm font-semibold tracking-[0.22em] text-brand-primary uppercase"
-          >
-            MA
-          </div>
-          <div>
-            <span
-              class="text-brand-primary block text-2xl font-semibold tracking-[0.24em] uppercase"
-              >Maison</span
-            >
-            <span
-              class="text-brand-secondary block text-sm tracking-[0.22em] uppercase"
-              >Atelier</span
-            >
-          </div>
-        </div>
-        <div class="w-full sm:w-auto sm:flex sm:justify-end">
-          <SiteNav active="home" />
-        </div>
-      </div>
-    </header>
+    <Header active="home" />
+
     <main id="top" class="flex-1 px-6 pt-12 pb-24 sm:px-10">
       <section class="mx-auto flex max-w-6xl flex-col gap-16">
         <div class="max-w-3xl space-y-5">
