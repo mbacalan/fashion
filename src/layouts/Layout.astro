@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/footer.astro"
 
-const { title = "Maison Atelier" } = Astro.props;
+const { title = "White Poplin Shirt" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,6 +18,8 @@ const { title = "Maison Atelier" } = Astro.props;
     class="bg-brand-background-start text-brand-ink md:from-brand-background-start md:to-brand-background-end antialiased md:bg-gradient-to-br"
   >
     <slot />
+
+    <Footer />
   </body>
 </html>
 
