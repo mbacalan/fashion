@@ -5,9 +5,9 @@ import Layout from "../layouts/layout.astro";
 ---
 
 <Layout title="White Poplin Shirt — Consultation">
-  <PageWrapper active="consultation">
-    <section class="flex flex-col gap-12">
-      <div class="space-y-5">
+  <PageWrapper active="consultation" contentClass="flex flex-col gap-12">
+    <section class="space-y-12">
+      <div class="max-w-3xl space-y-5">
         <p
           class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase"
         >
@@ -16,14 +16,9 @@ import Layout from "../layouts/layout.astro";
         <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
           Tell us about your next fashion moment.
         </h1>
-        <p class="text-brand-body text-lg leading-relaxed">
-          Share your timeline, audience, and styling ambitions. Our team will
-          review every detail and follow up within two business days with a
-          tailored proposal and availability.
-        </p>
       </div>
-
-      <ConsultationSection />
     </section>
+
+    <ConsultationSection />
   </PageWrapper>
 </Layout>

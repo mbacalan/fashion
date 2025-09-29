@@ -5,9 +5,9 @@ import Layout from "../layouts/layout.astro";
 ---
 
 <Layout title="White Poplin Shirt — About">
-  <PageWrapper active="about">
-    <section class="flex flex-col gap-12">
-      <div class="space-y-5">
+  <PageWrapper active="about" contentClass="flex flex-col gap-12">
+    <section class="space-y-12">
+      <div class="max-w-3xl space-y-5">
         <p
           class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase"
         >
@@ -16,18 +16,13 @@ import Layout from "../layouts/layout.astro";
         <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
           Meet the stylists shaping your next chapter.
         </h1>
-        <p class="text-brand-body text-lg leading-relaxed">
-          From the first mood board to final fittings, White Poplin Shirt blends
-          runway instincts with brand strategy so every collaboration feels
-          intentional, expressive, and unmistakably yours.
-        </p>
       </div>
 
       <article
-        class="ring-brand-rose-ring/80 grid gap-10 rounded-3xl bg-white p-8 shadow-[0_16px_40px_rgba(31,42,36,0.08)] ring-1 sm:p-10 lg:grid-cols-2 lg:items-center"
+        class="ring-brand-rose-ring/80 grid gap-10 rounded-3xl bg-white p-6 shadow-[0_16px_40px_rgba(31,42,36,0.08)] ring-1 sm:p-10 md:grid-cols-2 md:items-center"
       >
         <div
-          class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-gradient-to-br shadow-xl"
+          class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-[2rem] bg-gradient-to-br shadow-xl"
         >
           <div class="absolute inset-0 flex flex-col justify-between p-6">
             <span
@@ -41,7 +36,7 @@ import Layout from "../layouts/layout.astro";
           </div>
         </div>
 
-        <div class="space-y-5">
+        <div class="space-y-5 min-w-0">
           <p
             class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase"
           >
@@ -65,18 +60,18 @@ import Layout from "../layouts/layout.astro";
             craftsmanship at the center, ensuring every garment, prop, and frame
             advances the story.
           </p>
-          <div class="flex flex-wrap gap-4 pt-2">
+          <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
             <a
               href="mailto:hello@whitepoplin.studio"
-              class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-[0.28em] text-white uppercase shadow-[0_18px_32px_rgba(31,42,36,0.12)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-xs font-semibold tracking-[0.18em] text-white uppercase shadow-[0_18px_32px_rgba(31,42,36,0.12)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:w-auto sm:px-6 sm:text-sm sm:tracking-[0.28em]"
             >
               Email hello@whitepoplin.studio
             </a>
           </div>
         </div>
       </article>
-
-      <ConsultationSection />
     </section>
+
+    <ConsultationSection />
   </PageWrapper>
 </Layout>
