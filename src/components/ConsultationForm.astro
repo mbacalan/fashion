@@ -1,122 +1,134 @@
 ---
-export interface ConsultationFormProps {
-  interests?: string[];
-  method?: string;
+const interests = ["Editorial Styling", "Personal Wardrobe"];
+
+interface Props {
+  title?: string;
+  header?: string;
+  subtext?: string;
 }
 
-const {
-  interests = [
-    "Editorial Styling",
-    "Personal Wardrobe",
-    "Event Dressing",
-    "Brand Partnerships",
-    "Creative Direction",
-  ],
-  method = "post",
-} = Astro.props as ConsultationFormProps;
+const { title, header, subtext } = Astro.props as Props;
+
+const showText = title?.length || header?.length || subtext?.length;
 ---
 
-<form method={method} class="grid gap-10">
-  <div class="grid gap-6 sm:grid-cols-2">
-    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-      <span>First name</span>
-      <input
-        type="text"
-        name="first-name"
-        placeholder="Sasha"
-        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-      />
-    </label>
-    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-      <span>Surname</span>
-      <input
-        type="text"
-        name="surname"
-        placeholder="Ruiz"
-        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-      />
-    </label>
-    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-      <span>Email</span>
-      <input
-        type="email"
-        name="email"
-        placeholder="you@example.com"
-        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-      />
-    </label>
-    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-      <span>Occupation</span>
-      <input
-        type="text"
-        name="occupation"
-        placeholder="Creative director"
-        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-      />
-    </label>
-    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-      <span>Location</span>
-      <input
-        type="text"
-        name="location"
-        placeholder="Barcelona, ES"
-        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-      />
-    </label>
-    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-      <span>Age</span>
-      <input
-        type="number"
-        name="age"
-        placeholder="32"
-        min="0"
-        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-      />
-    </label>
-  </div>
-  <div>
-    <span class="mb-3 block text-sm font-medium text-neutral-950"
-      >Services of interest</span
-    >
-    <div class="flex flex-wrap gap-3">
-      {
-        interests.map((interest) => (
-          <label class="cursor-pointer">
-            <input
-              type="checkbox"
-              name="services"
-              value={interest}
-              class="peer sr-only"
-            />
-            <span class="border-brand-secondary-ring bg-brand-secondary-soft text-brand-secondary-ink peer-checked:border-brand-secondary peer-checked:bg-brand-secondary peer-focus-visible:outline-brand-secondary/60 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium tracking-[0.26em] uppercase transition-colors duration-150 ease-out peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
-              {interest}
-            </span>
-          </label>
-        ))
-      }
+<div
+  class="border-brand-lavender-ring/90 bg-brand-lavender-bg rounded-3xl border p-8 shadow-[0_20px_48px_rgba(31,42,36,0.08)] sm:p-12"
+>
+  {
+    showText ? (
+      <div class="mb-10 space-y-4">
+        <p class="text-brand-secondary text-xs font-medium tracking-[0.3em] uppercase">
+          {title}
+        </p>
+        <h2 class="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+          {header}
+        </h2>
+        <p class="text-brand-ink-muted text-base leading-relaxed">{subtext}</p>
+      </div>
+    ) : null
+  }
+
+  <form method="post" class="grid gap-10">
+    <div class="grid gap-6 sm:grid-cols-2">
+      <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+        <span>First name</span>
+        <input
+          type="text"
+          name="first-name"
+          placeholder="Sasha"
+          class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+        />
+      </label>
+      <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+        <span>Surname</span>
+        <input
+          type="text"
+          name="surname"
+          placeholder="Ruiz"
+          class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+        />
+      </label>
+      <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+        <span>Email</span>
+        <input
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+        />
+      </label>
+      <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+        <span>Occupation</span>
+        <input
+          type="text"
+          name="occupation"
+          placeholder="Creative director"
+          class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+        />
+      </label>
+      <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+        <span>Location</span>
+        <input
+          type="text"
+          name="location"
+          placeholder="Barcelona, ES"
+          class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+        />
+      </label>
+      <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+        <span>Age</span>
+        <input
+          type="number"
+          name="age"
+          placeholder="32"
+          min="0"
+          class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+        />
+      </label>
     </div>
-  </div>
-  <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
-    <span
-      >Additional information <span class="text-slate-500">(optional)</span
-      ></span
-    >
-    <textarea
-      name="additional-info"
-      rows="4"
-      placeholder="Share timelines, inspirations, or collaborators we should meet."
-      class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
-    ></textarea>
-  </label>
-  <div class="flex flex-wrap items-center gap-4">
-    <button
-      type="submit"
-      class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-[0.28em] text-white uppercase shadow-[0_18px_32px_rgba(31,42,36,0.12)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-    >
-      Request consult
-    </button>
-    <span class="text-brand-body text-xs tracking-[0.2em] uppercase"
-      >48-hour response time</span
-    >
-  </div>
-</form>
+    <div>
+      <span class="mb-3 block text-sm font-medium text-neutral-950"
+        >Services of interest</span
+      >
+      <div class="flex flex-wrap gap-3">
+        {
+          interests.map((interest) => (
+            <label class="cursor-pointer">
+              <input
+                type="radio"
+                id="services"
+                name="services"
+                value={interest}
+                class="peer sr-only"
+              />
+              <span class="border-brand-secondary-ring bg-brand-secondary-soft text-brand-secondary-ink peer-checked:border-brand-secondary peer-checked:bg-brand-secondary peer-focus-visible:outline-brand-secondary/60 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium tracking-[0.26em] uppercase transition-colors duration-150 ease-out peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
+                {interest}
+              </span>
+            </label>
+          ))
+        }
+      </div>
+    </div>
+    <label class="flex flex-col gap-2 text-sm font-medium text-neutral-950">
+      <span
+        >Additional information <span class="text-slate-500">(optional)</span
+        ></span
+      >
+      <textarea
+        name="additional-info"
+        rows="4"
+        placeholder="Share timelines, inspirations, or collaborators we should meet."
+        class="focus:border-brand-primary focus:ring-brand-primary/20 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-normal text-neutral-950 shadow-sm focus:ring-4 focus:outline-none"
+      ></textarea>
+    </label>
+    <div class="flex flex-wrap items-center gap-4">
+      <button
+        type="submit"
+        class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-[0.28em] text-white uppercase shadow-[0_18px_32px_rgba(31,42,36,0.12)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      >
+        Request consult
+      </button>
+    </div>
+  </form>
+</div>
