@@ -1,36 +1,7 @@
 ---
-import AccordionItem from "../components/AccordionItem.astro";
 import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
 import Layout from "../layouts/Layout.astro";
-
-const faqs = [
-  {
-    question:
-      "How quickly will I hear back after submitting the consultation form?",
-    answer:
-      "We aim to respond within two business days with a personalized note outlining next steps and any follow-up questions.",
-  },
-  {
-    question: "Do you work with clients outside of major fashion capitals?",
-    answer:
-      "Absolutely. Most collaborations begin remotely, and we travel as projects evolve. We tailor our approach to your location and timeline.",
-  },
-  {
-    question: "What does a typical engagement look like?",
-    answer:
-      "Each partnership is unique, but expect an initial discovery session, a mood board review, fittings or creative workshops, and delivery of full styling assets.",
-  },
-  {
-    question: "Can you coordinate with other creative partners?",
-    answer:
-      "Yes—we regularly partner with photographers, glam teams, production houses, and brand teams to ensure every look aligns with the larger vision.",
-  },
-  {
-    question: "How do we prepare for upcoming payments?",
-    answer:
-      "We share a proposal with milestones and payment timing. You’ll be able to review and complete payments securely once the project scope is confirmed.",
-  },
-];
 ---
 
 <Layout title="Maison Atelier — Q&A">
@@ -43,66 +14,15 @@ const faqs = [
           <p
             class="text-brand-secondary text-xs font-medium tracking-[0.3em] uppercase"
           >
-            Questions & Answers
+            About
           </p>
           <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
             Everything you need to start a project with us.
           </h1>
-          <p class="text-brand-body text-lg leading-relaxed">
-            We’ve collected the questions clients ask most when planning their
-            next campaign, wardrobe evolution, or collaborative editorial.
-          </p>
         </div>
-        <ul class="space-y-4">
-          {
-            faqs.map((faq, index) => (
-              <li>
-                <AccordionItem
-                  question={faq.question}
-                  defaultOpen={index === 0}
-                >
-                  <p>{faq.answer}</p>
-                </AccordionItem>
-              </li>
-            ))
-          }
-        </ul>
       </section>
     </main>
-    <footer class="bg-neutral-950 px-6 py-12 text-neutral-100 sm:px-10">
-      <div
-        class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
-      >
-        <div class="space-y-2">
-          <p
-            class="text-brand-primary text-xs font-semibold tracking-[0.3em] uppercase"
-          >
-            Maison Atelier
-          </p>
-          <p class="text-sm text-neutral-200">
-            Playful expression meets professional polish for fashion-first
-            brands.
-          </p>
-        </div>
-        <ul
-          class="flex flex-wrap gap-4 text-sm font-medium tracking-[0.26em] text-neutral-300 uppercase"
-        >
-          <li>
-            <a href="#" class="hover:text-brand-primary transition">Instagram</a
-            >
-          </li>
-          <li>
-            <a href="#" class="hover:text-brand-primary transition">TikTok</a>
-          </li>
-          <li>
-            <a href="#" class="hover:text-brand-primary transition">Pinterest</a
-            >
-          </li>
-          <li>
-            <a href="#" class="hover:text-brand-primary transition">LinkedIn</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+
+    <Footer />
   </div>
 </Layout>
