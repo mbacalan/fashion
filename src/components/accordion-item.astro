@@ -8,15 +8,15 @@ const { question, defaultOpen = false } = Astro.props as AccordionItemProps;
 ---
 
 <details
-  class="accordion border-brand-secondary-border group rounded-2xl border bg-white p-6 transition-shadow duration-300 ease-out hover:shadow-[0_12px_32px_rgba(31,42,36,0.12)]"
+  class="accordion border-brand-secondary-border group rounded-2xl border bg-white p-5 transition-shadow duration-300 ease-out hover:shadow-[0_10px_24px_rgba(31,42,36,0.1)]"
   open={defaultOpen}
 >
   <summary
-    class="text-brand-ink flex cursor-pointer items-center justify-between gap-4 text-base leading-snug font-semibold marker:hidden"
+    class="text-brand-ink flex cursor-pointer items-center justify-between gap-3 text-base leading-snug font-semibold marker:hidden"
   >
     <span>{question}</span>
     <span
-      class="text-brand-secondary-ink border-brand-secondary-border group-open:border-brand-primary group-open:bg-brand-primary relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ease-out group-open:text-white"
+      class="text-brand-secondary-ink border-brand-secondary-border group-open:border-brand-primary group-open:bg-brand-primary relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ease-out group-open:text-white"
     >
       <span
         class="absolute h-0.5 w-4 rounded-full bg-current transition-transform duration-300 ease-out"
@@ -27,7 +27,7 @@ const { question, defaultOpen = false } = Astro.props as AccordionItemProps;
     </span>
   </summary>
   <div class="accordion-collapse">
-    <div class="text-brand-body mt-4 text-sm leading-relaxed">
+    <div class="text-brand-body mt-3 text-sm leading-relaxed">
       <slot />
     </div>
   </div>

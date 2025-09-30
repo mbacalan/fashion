@@ -7,7 +7,7 @@ const { active } = Astro.props as SiteNavProps;
 
 const linkClasses = (key: SiteNavProps["active"]) =>
   [
-    "relative inline-flex items-center rounded-md px-3 py-1 text-[0.78rem] uppercase tracking-[0.22em] transition-colors",
+    "relative inline-flex items-center rounded-md px-3 py-1 text-[0.78rem] uppercase tracking-[0.12em] transition-colors",
     active === key
       ? "bg-brand-primary-soft text-brand-primary shadow-inner"
       : "text-brand-body hover:text-brand-primary",
@@ -15,9 +15,9 @@ const linkClasses = (key: SiteNavProps["active"]) =>
 ---
 
 <nav
-  class="text-brand-body text-[0.78rem] font-medium tracking-[0.22em] uppercase"
+  class="text-brand-body text-[0.78rem] font-medium tracking-[0.12em] uppercase"
 >
-  <ul class="flex flex-wrap gap-3 sm:justify-end sm:gap-4">
+  <ul class="flex flex-wrap gap-2 sm:justify-end sm:gap-3">
     <li>
       <a href="/" class={linkClasses("home")}>Ana Sayfa</a>
     </li>
