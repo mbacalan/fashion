@@ -5,43 +5,43 @@ import LinkButton from "../components/link-button.astro";
 
 const services = [
   {
-    tagline: "Signature Service 01",
-    title: "Runway Ready Styling",
+    tagline: "İmza Hizmet 01",
+    title: "Podyuma Hazır Stil Kürasyonu",
     teaser:
-      "Craft a seasonless wardrobe narrative with silhouettes that translate studio vision to everyday wear.",
+      "Stüdyomuzun vizyonunu günlük giyime taşıyan, mevsimsiz ve sürdürülebilir bir gardırop hikâyesi yazıyoruz.",
     detail:
-      "We storyboard each look, layer textures with intention, and source accessories that bring cohesion to your debut or refresh.",
-    highlights: ["Palette mapping", "Lookbook curation", "Accessory sourcing"],
-    imageLabel: "Placeholder image — Editorial collage",
+      "Her kombini için hikâye panoları kurguluyor, dokuları özenle katmanlıyor ve etik üreticilerden seçtiğimiz aksesuarlarla lansmanınızı ya da yenilenmenizi tamamlıyoruz.",
+    highlights: ["Renk paleti haritalama", "Görsel hikaye kürasyonu"],
+    imageLabel: "Yer tutucu görsel — Editoryal kolaj",
     gradient:
       "from-brand-primary/80 via-brand-primary-pop/60 to-brand-secondary/55",
   },
   {
-    tagline: "Signature Service 02",
-    title: "Campaign Creative Direction",
+    tagline: "İmza Hizmet 02",
+    title: "Kampanya Yaratıcı Yönü",
     teaser:
-      "Build a launch moment with art direction that keeps pace with trend cycles while feeling undeniably you.",
+      "Trend döngülerine yetişen fakat bütünüyle size ait kalan sürdürülebilir bir lansman deneyimi kurguluyoruz.",
     detail:
-      "From casting briefs to set styling, we orchestrate visuals that move with rhythm across print, social, and runway.",
-    highlights: ["Concept moodboards", "Casting support", "On-set styling"],
-    imageLabel: "Placeholder image — Studio lighting set",
+      "Kadro brieflerinden set düzenine kadar her adımı; baskı, sosyal medya ve podyumda ritmimizi koruyacak şekilde, düşük etki stratejileriyle orkestre ediyoruz.",
+    highlights: ["Konsept ilham panoları", "Kadro planlama desteği"],
+    imageLabel: "Yer tutucu görsel — Stüdyo ışık düzeni",
     gradient:
       "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
   },
 ];
 ---
 
-<Layout title="White Poplin Shirt — Fashion Forward Services">
+<Layout title="White Poplin Shirt — Modaya Yön Veren Hizmetler">
   <PageWrapper active="home" mainId="top" contentClass="flex flex-col gap-12">
     <section class="space-y-12">
       <div class="max-w-3xl space-y-5">
         <p
           class="text-brand-secondary text-xs font-medium tracking-[0.28em] uppercase"
         >
-          Our Services
+          Hizmetlerimiz
         </p>
         <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
-          Fashion-forward storytelling for brands and bold individuals.
+          Markalar ve cesur bireyler için sürdürülebilir moda hikâyeleri.
         </h1>
       </div>
 
@@ -63,7 +63,7 @@ const services = [
                   >
                     <div class="absolute inset-0 flex flex-col justify-between p-6">
                       <span class="w-max rounded-full bg-white/25 px-4 py-1 text-xs font-medium tracking-[0.28em] text-white/90 uppercase">
-                        Placeholder
+                        Yer Tutucu
                       </span>
                       <span class="text-sm font-medium text-white/80">
                         {service.imageLabel}
@@ -98,7 +98,7 @@ const services = [
                   <div class="flex flex-wrap items-center gap-3 pt-1">
                     <LinkButton
                       href={import.meta.env.CALENDAR_URL}
-                      text="Book Now"
+                      text="Şimdi Randevu Al"
                     />
                   </div>
                 </div>
