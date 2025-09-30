@@ -1,6 +1,5 @@
 ---
 import AccordionItem from "../components/accordion-item.astro";
-import ConsultationSection from "../components/consultation-section.astro";
 import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/layout.astro";
 
@@ -20,17 +19,7 @@ const faqs = [
     question: "What does a typical engagement look like?",
     answer:
       "Each partnership is unique, but expect an initial discovery session, a mood board review, fittings or creative workshops, and delivery of full styling assets.",
-  },
-  {
-    question: "Can you coordinate with other creative partners?",
-    answer:
-      "Yes—we regularly partner with photographers, glam teams, production houses, and brand teams to ensure every look aligns with the larger vision.",
-  },
-  {
-    question: "How do we prepare for upcoming payments?",
-    answer:
-      "We share a proposal with milestones and payment timing. You’ll be able to review and complete payments securely once the project scope is confirmed.",
-  },
+  }
 ];
 ---
 
@@ -60,7 +49,5 @@ const faqs = [
         }
       </ul>
       </section>
-
-    <ConsultationSection />
   </PageWrapper>
 </Layout>

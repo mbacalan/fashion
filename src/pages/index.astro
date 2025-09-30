@@ -1,5 +1,4 @@
 ---
-import ConsultationSection from "../components/consultation-section.astro";
 import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/layout.astro";
 
@@ -40,9 +39,7 @@ const services = [
         >
           Our Services
         </p>
-        <h1
-          class="text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl"
-        >
+        <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
           Fashion-forward storytelling for brands and bold individuals.
         </h1>
       </div>
@@ -101,7 +98,6 @@ const services = [
                     <button
                       type="button"
                       class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs font-semibold tracking-[0.26em] text-white uppercase shadow-[0_18px_32px_rgba(31,42,36,0.12)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                      onclick="document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });"
                     >
                       Book a consult
                     </button>
@@ -119,12 +115,5 @@ const services = [
         }
       </div>
     </section>
-
-    <ConsultationSection
-      id="consultation-form"
-      title="Let's Connect"
-      header="Shape your next fashion story with us"
-      subtext={"Tell us a little about you, your audience, and the moments you want to design. We'll craft a tailored proposal within two business days."}
-    />
   </PageWrapper>
 </Layout>

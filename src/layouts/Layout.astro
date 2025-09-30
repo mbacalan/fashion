@@ -6,7 +6,7 @@ const { title = "White Poplin Shirt" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -15,7 +15,7 @@ const { title = "White Poplin Shirt" } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="bg-brand-background-start text-brand-ink md:from-brand-background-start md:to-brand-background-end scroll-smooth antialiased md:bg-gradient-to-br"
+    class="bg-brand-background-start text-brand-ink md:from-brand-background-start md:to-brand-background-end antialiased md:bg-gradient-to-br"
   >
     <slot />
 
