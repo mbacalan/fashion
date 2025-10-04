@@ -3,7 +3,22 @@ import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
 
-const services = [
+type Service = {
+  tagline: string;
+  title: string;
+  teaser: string;
+  detail: string;
+  highlights: string[];
+  imageLabel: string;
+};
+
+type AtelierNote = {
+  title: string;
+  text: string;
+  tone: string;
+};
+
+const services: Service[] = [
   {
     tagline: "İmza Hizmet 01",
     title: "Podyuma Hazır Stil Kürasyonu",
@@ -13,8 +28,6 @@ const services = [
       "Her kombini için hikâye panoları kurguluyor, dokuları özenle katmanlıyor ve etik üreticilerden seçtiğimiz aksesuarlarla lansmanınızı ya da yenilenmenizi tamamlıyoruz.",
     highlights: ["Renk paleti haritalama", "Görsel hikaye kürasyonu"],
     imageLabel: "Yer tutucu görsel — Editoryal kolaj",
-    gradient:
-      "from-brand-primary/80 via-brand-primary-pop/60 to-brand-secondary/55",
   },
   {
     tagline: "İmza Hizmet 02",
@@ -25,86 +38,134 @@ const services = [
       "Kadro brieflerinden set düzenine kadar her adımı; baskı, sosyal medya ve podyumda ritmimizi koruyacak şekilde, düşük etki stratejileriyle orkestre ediyoruz.",
     highlights: ["Konsept ilham panoları", "Kadro planlama desteği"],
     imageLabel: "Yer tutucu görsel — Stüdyo ışık düzeni",
-    gradient:
-      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
+  },
+];
+
+const atelierNotes: AtelierNote[] = [
+  {
+    title: "Zanaat Odaklı",
+    text: "Elyafın kaynağını takip ediyor, her projede çalışanlarımızın emeğini honor ediyoruz.",
+    tone: "bg-brand-primary-soft text-brand-primary",
+  },
+  {
+    title: "Oyunbaz Palet",
+    text: "Pastel tonlar ve beklenmedik dokuları harmanlayarak sezgisel bir görsel ritim kuruyoruz.",
+    tone: "bg-brand-rose text-brand-secondary",
+  },
+  {
+    title: "Düşük Etki",
+    text: "Kiralama ağlarından karbon bilinçli lojistiğe kadar, her detayda gezegen dostu seçimler yapıyoruz.",
+    tone: "bg-brand-secondary-wash text-brand-secondary",
   },
 ];
 ---
 
 <Layout title="White Poplin Shirt — Modaya Yön Veren Hizmetler">
   <PageWrapper active="home" mainId="top">
-    <section class="space-y-8">
+    <section class="space-y-12">
       <div class="max-w-3xl space-y-4">
-        <p
-          class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase"
-        >
-          Hizmetlerimiz
-        </p>
-        <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
+        <h1 class="text-brand-ink text-4xl font-semibold tracking-tight">
           Markalar ve cesur bireyler için sürdürülebilir moda hikâyeleri.
         </h1>
+        <p class="text-brand-body text-base leading-relaxed">
+          Kendi ritminizde ilerleyen, doğal dokulara ve atölye işçiliğine dayalı
+          yaratıcı süreçler kuruyoruz. Koleksiyonlarınızın topraktan podyuma
+          uzanan hikâyesi için sıcak, oynak ve kalıcı anlatılar geliştiriyoruz.
+        </p>
       </div>
 
-      <div class="space-y-6">
+      <div class="space-y-14">
         {
           services.map((service, index) => {
             const isOdd = index % 2 === 1;
+            const accentBorder = isOdd
+              ? "border-brand-secondary"
+              : "border-brand-primary";
+            const collageTone = isOdd
+              ? "border-brand-secondary-border bg-brand-secondary-wash"
+              : "border-brand-rose-ring bg-brand-rose";
+            const badgeTone = isOdd
+              ? "bg-brand-secondary text-brand-background-end"
+              : "bg-brand-primary text-brand-background-end";
+
+            const indexLabel = `${(index + 1).toString().padStart(2, "0")}`;
+
             return (
               <article
-                class={`grid gap-8 rounded-3xl p-6 shadow-[0_12px_32px_rgba(31,42,36,0.08)] ring-1 sm:p-8 lg:grid-cols-2 lg:items-center ${
-                  isOdd
-                    ? "bg-brand-secondary-wash ring-brand-secondary-ring/80"
-                    : "bg-brand-primary-soft ring-brand-rose-ring/80"
-                }`}
+                class={`relative grid gap-8 border-l-4 ${accentBorder} pl-6 lg:grid-cols-[1fr_1.1fr] lg:gap-12`}
               >
-                <div class={`order-1 ${isOdd ? "lg:order-2" : "lg:order-1"}`}>
-                  <div
-                    class={`relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-gradient-to-br shadow-xl ${service.gradient}`}
-                  >
-                    <div class="absolute inset-0 flex flex-col justify-between p-5">
-                      <span class="w-max rounded-full bg-white/25 px-3 py-1 text-xs font-medium tracking-[0.16em] text-white/90 uppercase">
-                        Yer Tutucu
-                      </span>
-                      <span class="text-sm font-medium text-white/80">
-                        {service.imageLabel}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class={`order-2 space-y-4 ${isOdd ? "lg:order-1" : "lg:order-2"}`}
+                <span
+                  class={`text-brand-background-end absolute top-4 -left-6 flex h-12 w-12 items-center justify-center rounded-full text-base font-semibold tracking-[0.12em] uppercase ${badgeTone}`}
                 >
-                  <p class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase">
+                  {indexLabel}
+                </span>
+                <div class="order-2 space-y-4 lg:order-1">
+                  <p class="text-brand-secondary text-sm font-semibold tracking-[0.14em] uppercase">
                     {service.tagline}
                   </p>
-                  <h2 class="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+                  <h2 class="text-brand-ink text-3xl font-semibold tracking-tight sm:text-[2.5rem]">
                     {service.title}
                   </h2>
                   <p class="text-brand-ink-strong text-base leading-relaxed">
                     {service.teaser}
                   </p>
-                  <p class="text-brand-ink-muted text-base leading-relaxed">
+                  <p class="text-brand-body text-base leading-relaxed">
                     {service.detail}
                   </p>
-                  <ul class="flex flex-wrap gap-2">
+                  <ul class="text-brand-body list-disc space-y-1 pl-5 text-sm">
                     {service.highlights.map((highlight) => (
-                      <li>
-                        <span class="border-brand-highlight-border bg-brand-highlight-bg text-brand-highlight-text inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium tracking-[0.14em] uppercase">
-                          {highlight}
-                        </span>
-                      </li>
+                      <li>{highlight}</li>
                     ))}
                   </ul>
-                  <div class="flex flex-wrap items-center gap-2 pt-0.5">
-                    <LinkButton
-                      href={import.meta.env.CALENDAR_URL}
-                      text="Şimdi Randevu Al"
-                    />
-                  </div>
+                  <LinkButton
+                    href={import.meta.env.CALENDAR_URL}
+                    text="Şimdi Randevu Al"
+                  />
+                </div>
+
+                <div class="order-1 lg:order-2">
+                  <figure
+                    class={`relative aspect-[4/3] overflow-hidden border ${collageTone}`}
+                  >
+                    <div class="absolute inset-4 flex flex-col justify-between gap-4">
+                      <div class="flex gap-4">
+                        <div class="border-brand-primary/30 bg-brand-primary-soft h-24 flex-1 border" />
+                        <div class="border-brand-secondary-border bg-brand-secondary-wash h-24 w-20 border" />
+                      </div>
+                      <div class="flex gap-4">
+                        <div class="border-brand-secondary-border h-16 w-24 border bg-white/40" />
+                        <div class="border-brand-primary/30 h-16 flex-1 border border-dashed" />
+                      </div>
+                    </div>
+                    <span
+                      class="text-brand-secondary/20 absolute top-10 -left-10 text-[7rem] font-semibold tracking-tight"
+                      aria-hidden="true"
+                    >
+                      W
+                    </span>
+                    <figcaption class="text-brand-body/80 absolute bottom-5 left-5 text-xs tracking-[0.16em] uppercase">
+                      {service.imageLabel}
+                    </figcaption>
+                  </figure>
                 </div>
               </article>
             );
           })
+        }
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+        {
+          atelierNotes.map((note) => (
+            <article class={`min-h-[9rem] p-4 sm:p-5 ${note.tone}`}>
+              <h2 class="text-base font-semibold tracking-[0.2em] uppercase">
+                {note.title}
+              </h2>
+              <p class="text-brand-body mt-3 text-sm leading-relaxed">
+                {note.text}
+              </p>
+            </article>
+          ))
         }
       </div>
     </section>

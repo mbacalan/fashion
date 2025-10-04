@@ -25,30 +25,58 @@ const faqs = [
 
 <Layout title="White Poplin Shirt — Soru-Cevap">
   <PageWrapper active="qa">
-    <section class="space-y-8">
+    <section class="space-y-10">
       <div class="max-w-3xl space-y-4">
-        <p
-          class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase"
-        >
-          Sorular &amp; Yanıtlar
-        </p>
-        <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
+        <h1 class="text-brand-ink text-4xl font-semibold tracking-tight">
           Bizimle sürdürülebilir bir projeye başlamak için bilmeniz gereken her
           şey.
         </h1>
+        <p class="text-brand-body text-base leading-relaxed">
+          Atölyemize dair en sık duyduğumuz soruları, gezegen dostu moda
+          yolculuğunuzun ilk adımlarını kolaylaştırmak için derledik.
+        </p>
       </div>
 
-      <ul class="space-y-3">
-        {
-          faqs.map((faq, index) => (
-            <li>
-              <AccordionItem question={faq.question} defaultOpen={index === 0}>
-                <p>{faq.answer}</p>
-              </AccordionItem>
-            </li>
-          ))
-        }
-      </ul>
+      <div class="grid gap-4 sm:grid-cols-[1fr_0.7fr] sm:items-start">
+        <ul class="space-y-3">
+          {
+            faqs.map((faq, index) => (
+              <li>
+                <AccordionItem
+                  question={faq.question}
+                  defaultOpen={index === 0}
+                >
+                  <p>{faq.answer}</p>
+                </AccordionItem>
+              </li>
+            ))
+          }
+        </ul>
+
+        <aside
+          aria-label="Instagram studio note"
+          class="border-brand-secondary bg-brand-secondary-wash text-brand-body border p-5 text-sm leading-relaxed"
+        >
+          <p
+            class="text-brand-secondary text-xs font-semibold tracking-[0.22em] uppercase"
+          >
+            Stüdyo Notu
+          </p>
+          <p class="mt-3">
+            Her yeni iş birliğinde Instagram'da perde arkasını paylaşıyoruz.
+            Taslak panolar, vintage keşifler ve yolculuklarımızı takip etmek
+            için
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              class="text-brand-secondary underline-offset-4 transition hover:underline"
+            >
+              bizi izleyin.
+            </a>
+          </p>
+        </aside>
+      </div>
     </section>
   </PageWrapper>
 </Layout>

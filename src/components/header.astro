@@ -9,30 +9,31 @@ const { active } = Astro.props as Props;
 ---
 
 <header
-  class="border-brand-rose border-b bg-white p-6 shadow-[0_10px_24px_rgba(31,42,36,0.07)] sm:px-10"
+  class="border-brand-secondary-border/70 bg-brand-accent border-b px-6 py-8 sm:px-10"
 >
   <div
-    class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+    class="mx-auto grid max-w-6xl gap-6 md:grid-cols-[1.2fr_auto] md:items-end"
   >
-    <div class="flex items-center gap-4">
-      <div
-        class="border-brand-primary/30 bg-brand-primary-soft text-brand-primary flex size-12 items-center justify-center rounded-full border text-sm font-semibold tracking-[0.12em] uppercase"
+    <div class="space-y-4">
+      <div class="space-y-2">
+        <h1
+          class="text-brand-ink text-4xl leading-tight font-semibold sm:text-5xl"
+        >
+          White Poplin Shirt
+        </h1>
+      </div>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noreferrer"
+        class="bg-brand-secondary text-brand-background-end hover:bg-brand-secondary-pop focus-visible:outline-brand-primary inline-flex max-w-max items-center gap-3 rounded-full px-5 py-2 text-sm font-semibold tracking-[0.16em] uppercase transition focus-visible:outline focus-visible:outline-2"
       >
-        WPS
-      </div>
-      <div class="flex flex-wrap items-end gap-x-1 uppercase">
-        <span
-          class="text-brand-primary text-2xl font-semibold tracking-[0.14em]"
-          >White</span
-        >
-        <span
-          class="text-brand-secondary text-2xl font-semibold tracking-[0.14em]"
-          >Poplin</span
-        >
-        <span class="text-brand-primary text-2xl tracking-[0.14em]">Shirt</span>
-      </div>
+        Instagram'da İlham
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
-    <div class="w-full sm:flex sm:w-auto sm:justify-end">
+
+    <div class="flex flex-col items-stretch gap-6 text-right">
       <SiteNav active={active} />
     </div>
   </div>

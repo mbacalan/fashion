@@ -7,17 +7,18 @@ const { active } = Astro.props as SiteNavProps;
 
 const linkClasses = (key: SiteNavProps["active"]) =>
   [
-    "relative inline-flex items-center rounded-md px-3 py-1 text-[0.78rem] uppercase tracking-[0.12em] transition-colors",
+    "inline-flex items-center justify-end gap-2 rounded-full border px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.12em] transition",
     active === key
-      ? "bg-brand-primary-soft text-brand-primary shadow-inner"
-      : "text-brand-body hover:text-brand-primary",
+      ? "border-brand-secondary bg-brand-secondary text-brand-background-end"
+      : "border-transparent text-brand-body hover:border-brand-primary/40 hover:bg-brand-primary-soft hover:text-brand-primary",
   ].join(" ");
 ---
 
 <nav
-  class="text-brand-body text-[0.78rem] font-medium tracking-[0.12em] uppercase"
+  aria-label="Site navigation"
+  class="text-brand-body text-sm font-medium tracking-[0.08em] uppercase"
 >
-  <ul class="flex flex-wrap gap-2 sm:justify-end sm:gap-3">
+  <ul class="flex flex-col gap-2 sm:items-end">
     <li>
       <a href="/" class={linkClasses("home")}>Ana Sayfa</a>
     </li>
