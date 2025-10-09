@@ -1,8 +1,8 @@
 ---
-import SiteNav from "./site-nav.astro";
+import Navigation from "./navigation.astro";
 
 interface Props {
-  active: "home" | "qa" | "about" | "styling";
+  active: "qa" | "about" | "styling";
 }
 
 const { active } = Astro.props as Props;
@@ -11,17 +11,19 @@ const { active } = Astro.props as Props;
 <header
   class="border-brand-secondary-border/70 bg-brand-accent border-b p-6 sm:px-10"
 >
-  <div
-    class="mx-auto grid max-w-6xl gap-6 md:grid-cols-1 md:items-end"
-  >
-    <div class="flex flex-col items-stretch gap-6">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6">
+    <div
+      class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
       <h1
-        class="text-brand-ink text-4xl leading-tight font-semibold sm:text-5xl"
+        class="text-brand-ink text-3xl leading-tight font-semibold sm:text-4xl md:text-5xl"
       >
-        White Poplin Shirt
+        <a href="/" class="hover:underline"> White Poplin Shirt </a>
       </h1>
 
-      <SiteNav active={active} />
+      <div class="w-full sm:w-auto">
+        <Navigation active={active} />
+      </div>
     </div>
   </div>
 </header>

@@ -2,37 +2,17 @@
 import Layout from "../layouts/base-layout.astro";
 import PageWrapper from "../components/page-wrapper.astro";
 import LinkButton from "../components/link-button.astro";
-
-type AtelierNote = {
-  title: string;
-  text: string;
-  tone: string;
-};
-
-const atelierNotes: AtelierNote[] = [
-  {
-    title: "Zanaat Odaklı",
-    text: "Elyafın kaynağını takip ediyor, her projede çalışanlarımızın emeğini honor ediyoruz.",
-    tone: "bg-brand-primary-soft text-brand-primary",
-  },
-  {
-    title: "Oyunbaz Palet",
-    text: "Pastel tonlar ve beklenmedik dokuları harmanlayarak sezgisel bir görsel ritim kuruyoruz.",
-    tone: "bg-brand-rose text-brand-secondary",
-  },
-  {
-    title: "Düşük Etki",
-    text: "Kiralama ağlarından karbon bilinçli lojistiğe kadar, her detayda gezegen dostu seçimler yapıyoruz.",
-    tone: "bg-brand-secondary-wash text-brand-secondary",
-  },
-];
+import About from "../components/about.astro";
+import QA from "../components/q-and-a.astro";
 ---
 
 <Layout title="White Poplin Shirt — Modaya Yön Veren Hizmetler">
   <PageWrapper active="home" mainId="top">
-    <section class="space-y-12">
+    <section class="space-y-12" id="home">
       <div class="max-w-3xl space-y-4">
-        <h1 class="text-brand-ink text-4xl font-semibold tracking-tight">
+        <h1
+          class="text-brand-ink text-3xl font-semibold tracking-tight sm:text-4xl"
+        >
           Markalar ve cesur bireyler için sürdürülebilir moda hikâyeleri.
         </h1>
         <p class="text-brand-body text-base leading-relaxed">
@@ -48,33 +28,17 @@ const atelierNotes: AtelierNote[] = [
         </p>
       </div>
 
-      <div class="flex flex-row gap-4">
-      <LinkButton
-        href="/styling"
-        text="Şimdi Randevu Al"
-        target={'_self'}
-      />
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <LinkButton href="/styling" text="Şimdi Randevu Al" target={"_self"} />
 
-      <LinkButton
-        href={import.meta.env.INSTAGRAM_URL}
-        text="Instagram'da ilham"
-      />
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-3">
-        {
-          atelierNotes.map((note) => (
-            <article class={`min-h-[9rem] p-4 sm:p-5 ${note.tone}`}>
-              <h2 class="text-base font-semibold tracking-[0.2em] uppercase">
-                {note.title}
-              </h2>
-              <p class="text-brand-body mt-3 text-sm leading-relaxed">
-                {note.text}
-              </p>
-            </article>
-          ))
-        }
+        <LinkButton
+          href={import.meta.env.INSTAGRAM_URL}
+          text="Instagram'da ilham"
+        />
       </div>
     </section>
+
+    <About />
+    <QA />
   </PageWrapper>
 </Layout>
