@@ -1,6 +1,6 @@
 ---
 interface SiteNavProps {
-  active: "home" | "qa" | "about";
+  active: "home" | "qa" | "about" | "styling";
 }
 
 const { active } = Astro.props as SiteNavProps;
@@ -18,9 +18,12 @@ const linkClasses = (key: SiteNavProps["active"]) =>
   aria-label="Site navigation"
   class="text-brand-body text-sm font-medium tracking-[0.08em] uppercase"
 >
-  <ul class="flex flex-col gap-2 sm:items-end">
+  <ul class="flex flex-row gap-2">
     <li>
       <a href="/" class={linkClasses("home")}>Ana Sayfa</a>
+    </li>
+    <li>
+      <a href="/styling" class={linkClasses("styling")}>Hizmetler</a>
     </li>
     <li>
       <a href="/about" class={linkClasses("about")}>Hakkımızda</a>
