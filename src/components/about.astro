@@ -1,0 +1,114 @@
+---
+import LinkButton from "../components/link-button.astro";
+
+type StudioValue = {
+  label: string;
+  detail: string;
+};
+
+const studioValues: StudioValue[] = [
+  {
+    label: "Malzeme Şeffaflığı",
+    detail:
+      "Her parçanın kökenini belgeleyerek tedarik zincirini görünür kılıyoruz.",
+  },
+  {
+    label: "Topluluk",
+    detail:
+      "Yerel zanaatkârlarla uzun soluklu bağlar kuruyor, birlikte büyüyoruz.",
+  },
+  {
+    label: "Dönüşüm",
+    detail:
+      "Atık kumaşları yeni sezon hikâyelerine renk katacak şekilde yeniden yorumluyoruz.",
+  },
+];
+---
+
+<section class="space-y-12" id="hakkimizda">
+  <article
+    class="border-brand-primary relative grid gap-10 border-l-4 pl-6 md:grid-cols-[1fr_1.1fr] md:items-start md:gap-12"
+  >
+    <span
+      class="text-brand-secondary/15 absolute top-6 -left-14 hidden text-[8rem] font-semibold tracking-tight lg:block"
+      aria-hidden="true"
+    >
+      S
+    </span>
+    <div class="order-2 space-y-4 md:order-1">
+      <p
+        class="text-brand-secondary text-sm font-semibold tracking-[0.14em] uppercase"
+      >
+        Çalışma Biçimimiz
+      </p>
+      <h2 class="text-brand-ink text-3xl font-semibold tracking-tight">
+        Her anlatı kurgusu için özenle uyarlanmış iş birlikleri.
+      </h2>
+      <p class="text-brand-ink-strong text-base leading-relaxed">
+        Markanızın dünyasına dalıyor, ilham panolarından provalara ve kampanya
+        koreografisine kadar ortak bir dil kuruyoruz. Her iş birliği,
+        sürdürülebilir malzeme araştırması, trend yetkinliği ve üretime hazır
+        detaylarla güçleniyor; böylece ekiplerimiz uyum içinde, hızlı ve
+        bilinçli hareket ediyor.
+      </p>
+      <p class="text-brand-body text-base leading-relaxed">
+        Tam kapsamlı bir görünüm gelişimine ya da destekleyici bir yaratıcı göze
+        ihtiyaç duyduğunuzda, doğru paydaşları bir araya getiriyor ve podyumdan
+        perakendeye uzanan ölçeklenebilir yönlendirmeyi sağlıyoruz. Üretici
+        topluluğumuz el işçiliğini ve gezegenimizi merkeze alıyor; her giysi,
+        aksesuar ve kare hikâyenizi güçlendirirken izimizi hafifletiyor.
+      </p>
+
+      <LinkButton
+        href="mailto:whitepoplinshirt@gmail.com"
+        text="whitepoplinshirt@gmail.com"
+      />
+    </div>
+
+    <div class="order-1 md:order-2">
+      <figure
+        class="border-brand-secondary-border bg-brand-secondary-wash relative aspect-[4/3] overflow-hidden border"
+      >
+        <div class="absolute inset-4 grid grid-cols-3 gap-3">
+          <div
+            class="border-brand-primary/30 bg-brand-primary-soft col-span-2 border"
+          >
+          </div>
+          <div class="border-brand-secondary-border border bg-white/40"></div>
+          <div class="border-brand-rose-ring bg-brand-rose border"></div>
+          <div class="border-brand-primary/30 col-span-2 border border-dashed">
+          </div>
+        </div>
+        <figcaption
+          class="text-brand-body/80 absolute bottom-4 left-4 text-xs tracking-[0.16em] uppercase"
+        >
+          Kamera arkası ilham panosu kolajı
+        </figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <section class="bg-brand-primary-soft p-6 sm:p-8">
+    <div class="mx-auto grid gap-6 sm:grid-cols-[0.9fr_1.1fr] sm:items-start">
+      <h2
+        class="text-brand-primary text-2xl leading-tight font-semibold sm:text-3xl"
+      >
+        Değer Manifestomuz
+      </h2>
+      <dl class="space-y-5">
+        {
+          studioValues.map((value) => (
+            <div class="border-brand-primary/30 border-l-4 pl-4">
+              <dt class="text-brand-secondary text-sm font-semibold tracking-[0.2em] uppercase">
+                {value.label}
+              </dt>
+              <dd class="text-brand-body mt-2 text-sm leading-relaxed">
+                {value.detail}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+</section>

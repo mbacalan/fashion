@@ -1,112 +1,44 @@
 ---
-import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/base-layout.astro";
+import PageWrapper from "../components/page-wrapper.astro";
 import LinkButton from "../components/link-button.astro";
-
-const services = [
-  {
-    tagline: "İmza Hizmet 01",
-    title: "Podyuma Hazır Stil Kürasyonu",
-    teaser:
-      "Stüdyomuzun vizyonunu günlük giyime taşıyan, mevsimsiz ve sürdürülebilir bir gardırop hikâyesi yazıyoruz.",
-    detail:
-      "Her kombini için hikâye panoları kurguluyor, dokuları özenle katmanlıyor ve etik üreticilerden seçtiğimiz aksesuarlarla lansmanınızı ya da yenilenmenizi tamamlıyoruz.",
-    highlights: ["Renk paleti haritalama", "Görsel hikaye kürasyonu"],
-    imageLabel: "Yer tutucu görsel — Editoryal kolaj",
-    gradient:
-      "from-brand-primary/80 via-brand-primary-pop/60 to-brand-secondary/55",
-  },
-  {
-    tagline: "İmza Hizmet 02",
-    title: "Kampanya Yaratıcı Yönü",
-    teaser:
-      "Trend döngülerine yetişen fakat bütünüyle size ait kalan sürdürülebilir bir lansman deneyimi kurguluyoruz.",
-    detail:
-      "Kadro brieflerinden set düzenine kadar her adımı; baskı, sosyal medya ve podyumda ritmimizi koruyacak şekilde, düşük etki stratejileriyle orkestre ediyoruz.",
-    highlights: ["Konsept ilham panoları", "Kadro planlama desteği"],
-    imageLabel: "Yer tutucu görsel — Stüdyo ışık düzeni",
-    gradient:
-      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
-  },
-];
+import About from "../components/about.astro";
+import QA from "../components/q-and-a.astro";
 ---
 
 <Layout title="White Poplin Shirt — Modaya Yön Veren Hizmetler">
   <PageWrapper active="home" mainId="top">
-    <section class="space-y-8">
+    <section class="space-y-12" id="home">
       <div class="max-w-3xl space-y-4">
-        <p
-          class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase"
+        <h1
+          class="text-brand-ink text-3xl font-semibold tracking-tight sm:text-4xl"
         >
-          Hizmetlerimiz
-        </p>
-        <h1 class="text-4xl font-semibold tracking-tight text-neutral-950">
           Markalar ve cesur bireyler için sürdürülebilir moda hikâyeleri.
         </h1>
+        <p class="text-brand-body text-base leading-relaxed">
+          Kendi ritminizde ilerleyen, doğal dokulara ve atölye işçiliğine dayalı
+          yaratıcı süreçler kuruyoruz. Koleksiyonlarınızın topraktan podyuma
+          uzanan hikâyesi için sıcak, oynak ve kalıcı anlatılar geliştiriyoruz.
+        </p>
+
+        <p class="text-brand-body text-base leading-relaxed">
+          Kendi ritminizde ilerleyen, doğal dokulara ve atölye işçiliğine dayalı
+          yaratıcı süreçler kuruyoruz. Koleksiyonlarınızın topraktan podyuma
+          uzanan hikâyesi için sıcak, oynak ve kalıcı anlatılar geliştiriyoruz.
+        </p>
       </div>
 
-      <div class="space-y-6">
-        {
-          services.map((service, index) => {
-            const isOdd = index % 2 === 1;
-            return (
-              <article
-                class={`grid gap-8 rounded-3xl p-6 shadow-[0_12px_32px_rgba(31,42,36,0.08)] ring-1 sm:p-8 lg:grid-cols-2 lg:items-center ${
-                  isOdd
-                    ? "bg-brand-secondary-wash ring-brand-secondary-ring/80"
-                    : "bg-brand-primary-soft ring-brand-rose-ring/80"
-                }`}
-              >
-                <div class={`order-1 ${isOdd ? "lg:order-2" : "lg:order-1"}`}>
-                  <div
-                    class={`relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-gradient-to-br shadow-xl ${service.gradient}`}
-                  >
-                    <div class="absolute inset-0 flex flex-col justify-between p-5">
-                      <span class="w-max rounded-full bg-white/25 px-3 py-1 text-xs font-medium tracking-[0.16em] text-white/90 uppercase">
-                        Yer Tutucu
-                      </span>
-                      <span class="text-sm font-medium text-white/80">
-                        {service.imageLabel}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class={`order-2 space-y-4 ${isOdd ? "lg:order-1" : "lg:order-2"}`}
-                >
-                  <p class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase">
-                    {service.tagline}
-                  </p>
-                  <h2 class="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-                    {service.title}
-                  </h2>
-                  <p class="text-brand-ink-strong text-base leading-relaxed">
-                    {service.teaser}
-                  </p>
-                  <p class="text-brand-ink-muted text-base leading-relaxed">
-                    {service.detail}
-                  </p>
-                  <ul class="flex flex-wrap gap-2">
-                    {service.highlights.map((highlight) => (
-                      <li>
-                        <span class="border-brand-highlight-border bg-brand-highlight-bg text-brand-highlight-text inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium tracking-[0.14em] uppercase">
-                          {highlight}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div class="flex flex-wrap items-center gap-2 pt-0.5">
-                    <LinkButton
-                      href={import.meta.env.CALENDAR_URL}
-                      text="Şimdi Randevu Al"
-                    />
-                  </div>
-                </div>
-              </article>
-            );
-          })
-        }
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <LinkButton href="/styling" text="Şimdi Randevu Al" target={"_self"} />
+
+        <LinkButton
+          href={import.meta.env.INSTAGRAM_URL}
+          text="Instagram'da ilham"
+        />
       </div>
     </section>
+
+    <About />
+    <QA />
   </PageWrapper>
 </Layout>

@@ -9,13 +9,14 @@ interface Props extends HTMLAttributes<"a"> {
 const { href, text, target, referrerpolicy } = Astro.props;
 ---
 
-<div class="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
+<div class="pt-3">
   <a
     href={href}
     target={target ?? "_blank"}
     referrerpolicy={referrerpolicy ?? "same-origin"}
-    class="bg-brand-primary hover:bg-brand-primary-deep focus-visible:outline-brand-secondary/60 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-xs font-semibold tracking-[0.12em] text-white uppercase shadow-[0_14px_28px_rgba(31,42,36,0.08)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-offset-2 sm:w-auto sm:px-6 sm:text-sm sm:tracking-[0.16em]"
+    class="border-brand-primary/50 bg-brand-primary-soft text-brand-primary hover:border-brand-primary hover:bg-brand-accent focus-visible:outline-brand-secondary/50 inline-flex items-center gap-3 border px-5 py-2 text-sm font-semibold tracking-[0.14em] uppercase transition focus-visible:outline"
   >
-    {text}
+    <span>{text}</span>
+    <span aria-hidden="true">→</span>
   </a>
 </div>

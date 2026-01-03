@@ -1,0 +1,32 @@
+---
+interface NavigationProps {
+  active: "qa" | "about" | "styling";
+}
+
+const { active } = Astro.props as NavigationProps;
+
+const linkClasses = (key: NavigationProps["active"]) =>
+  [
+    "inline-flex items-center justify-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition sm:px-4 sm:py-1.5 sm:text-sm",
+    active === key
+      ? "border-brand-secondary bg-brand-secondary text-brand-background-end"
+      : "border-transparent text-brand-body hover:border-brand-primary/40 hover:bg-brand-primary-soft hover:text-brand-primary",
+  ].join(" ");
+---
+
+<nav
+  aria-label="Site navigation"
+  class="text-brand-body w-full text-xs font-medium uppercase sm:text-sm"
+>
+  <ul class="flex flex-wrap items-center gap-2 sm:flex-nowrap sm:justify-end">
+    <li>
+      <a href="/#hakkimizda" class={linkClasses("about")}>Hakkımızda</a>
+    </li>
+    <li>
+      <a href="/#soru-cevap" class={linkClasses("qa")}>Soru-Cevap</a>
+    </li>
+    <li>
+      <a href="/hizmetler" class={linkClasses("styling")}>Hizmetler</a>
+    </li>
+  </ul>
+</nav>

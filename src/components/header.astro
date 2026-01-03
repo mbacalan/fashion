@@ -1,39 +1,29 @@
 ---
-import SiteNav from "./site-nav.astro";
+import Navigation from "./navigation.astro";
 
 interface Props {
-  active: "home" | "qa" | "about" | "consultation";
+  active: "qa" | "about" | "styling";
 }
 
 const { active } = Astro.props as Props;
 ---
 
 <header
-  class="border-brand-rose border-b bg-white p-6 shadow-[0_10px_24px_rgba(31,42,36,0.07)] sm:px-10"
+  class="border-brand-secondary-border/70 bg-brand-accent border-b p-6 sm:px-10"
 >
-  <div
-    class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
-  >
-    <div class="flex items-center gap-4">
-      <div
-        class="border-brand-primary/30 bg-brand-primary-soft text-brand-primary flex size-12 items-center justify-center rounded-full border text-sm font-semibold tracking-[0.12em] uppercase"
+  <div class="mx-auto flex max-w-6xl flex-col gap-6">
+    <div
+      class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <h1
+        class="text-brand-ink text-3xl leading-tight font-semibold sm:text-4xl md:text-5xl"
       >
-        WPS
+        <a href="/" class="hover:underline"> White Poplin Shirt </a>
+      </h1>
+
+      <div class="w-full sm:w-auto">
+        <Navigation active={active} />
       </div>
-      <div class="flex flex-wrap items-end gap-x-1 uppercase">
-        <span
-          class="text-brand-primary text-2xl font-semibold tracking-[0.14em]"
-          >White</span
-        >
-        <span
-          class="text-brand-secondary text-2xl font-semibold tracking-[0.14em]"
-          >Poplin</span
-        >
-        <span class="text-brand-primary text-2xl tracking-[0.14em]">Shirt</span>
-      </div>
-    </div>
-    <div class="w-full sm:flex sm:w-auto sm:justify-end">
-      <SiteNav active={active} />
     </div>
   </div>
 </header>
