@@ -1,35 +1,36 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Figtree";
-  src: url("/fonts/figtree-variable.ttf") format("truetype");
+  font-family: "Kameron";
+  src: url("/fonts/kameron-variable.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Figtree";
-  src: url("/fonts/figtree-italic-variable.ttf") format("truetype");
+  font-family: "Quicksand";
+  src: url("/fonts/quicksand-variable.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 
 @theme {
-  --font-sans: "Figtree", "sans-serif";
+  --font-sans: "Kameron", "sans-serif";
+  --font-sans-headline: "Quicksand", "sans-serif";
 
   --color-brand-primary: #651D32;
   --color-brand-primary-pop: #c06a4d;
   --color-brand-primary-soft: #F2D4D7;
   --color-brand-primary-deep: #3e0f1d;
-  --color-brand-secondary: #FFEFD5;
-  --color-brand-secondary-pop: #c48a3a;
-  --color-brand-secondary-border: #f7e2c4;
-  --color-brand-secondary-ring: #ebcb9c;
-  --color-brand-secondary-wash: #fff6e6;
-  --color-brand-background-start: #fff7f0;
-  --color-brand-background-end: #fff3df;
+  --color-brand-secondary: #b5895a;
+  --color-brand-secondary-pop: #9a6c3a;
+  --color-brand-secondary-border: #e1c8ad;
+  --color-brand-secondary-ring: #c9a478;
+  --color-brand-secondary-wash: #f0dfcc;
+  --color-brand-background-start: #f7eee4;
+  --color-brand-background-end: #eedbc6;
   --color-brand-rose: #f3dee1;
   --color-brand-rose-ring: #e9cbd0;
   --color-brand-highlight-border: #b88b7a;
@@ -38,6 +39,17 @@
   --color-brand-ink: #2b1d22;
   --color-brand-body: #4a3137;
   --color-brand-secondary-ink: #8b5a2b;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans-headline);
+  }
 }
 
 @layer utilities {
