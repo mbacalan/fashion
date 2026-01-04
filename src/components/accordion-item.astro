@@ -8,7 +8,7 @@ const { question, defaultOpen = false } = Astro.props as AccordionItemProps;
 ---
 
 <details
-  class="accordion border-brand-secondary-border group rounded-2xl border bg-white p-5 transition-shadow duration-300 ease-out hover:shadow-[0_10px_24px_rgba(31,42,36,0.1)]"
+  class="accordion border-brand-secondary-border group rounded-md border bg-white p-5 transition-shadow duration-300 ease-out hover:shadow-[0_10px_24px_rgba(31,42,36,0.1)]"
   open={defaultOpen}
 >
   <summary
@@ -16,13 +16,13 @@ const { question, defaultOpen = false } = Astro.props as AccordionItemProps;
   >
     <span>{question}</span>
     <span
-      class="text-brand-secondary-ink border-brand-secondary-border group-open:border-brand-primary group-open:bg-brand-primary relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ease-out group-open:text-white"
+      class="text-brand-secondary-ink border-brand-secondary-border group-open:border-brand-primary group-open:bg-brand-primary relative flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border transition-colors duration-300 ease-out group-open:text-white"
     >
       <span
-        class="absolute h-0.5 w-4 rounded-full bg-current transition-transform duration-300 ease-out"
+        class="absolute h-0.5 w-4 rounded-sm bg-current transition-transform duration-300 ease-out"
       ></span>
       <span
-        class="absolute h-4 w-0.5 origin-center rounded-full bg-current transition-transform duration-300 ease-out group-open:scale-y-0"
+        class="absolute h-4 w-0.5 origin-center rounded-sm bg-current transition-transform duration-300 ease-out group-open:scale-y-0"
       ></span>
     </span>
   </summary>
