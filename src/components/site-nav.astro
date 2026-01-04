@@ -1,31 +1,34 @@
 ---
+import Instagram from "../assets/icons/instagram.svg";
+
 interface SiteNavProps {
-  active: "home" | "qa" | "about";
+  active: "home" | "about" | "services";
 }
 
 const { active } = Astro.props as SiteNavProps;
 
 const linkClasses = (key: SiteNavProps["active"]) =>
   [
-    "relative inline-flex items-center rounded-sm px-3 py-1 text-[0.78rem] uppercase tracking-[0.12em] transition-colors",
-    active === key
-      ? "bg-brand-primary-soft text-brand-primary shadow-inner"
-      : "text-brand-body hover:text-brand-primary",
+    "relative inline-flex items-center rounded-sm px-3 py-1",
+    active === key && "bg-brand-accent",
   ].join(" ");
 ---
 
-<nav
-  class="text-brand-body text-[0.78rem] font-medium tracking-[0.12em] uppercase"
->
-  <ul class="flex flex-wrap gap-2 sm:justify-end sm:gap-3">
+<nav class="text-brand-primary text-sm font-medium uppercase">
+  <ul class="flex flex-wrap items-center gap-2 sm:justify-end sm:gap-3">
     <li>
       <a href="/" class={linkClasses("home")}>Ana Sayfa</a>
     </li>
     <li>
-      <a href="/about" class={linkClasses("about")}>Hakkımızda</a>
+      <a href="/about" class={linkClasses("about")}>Hakkımda</a>
     </li>
     <li>
-      <a href="/q-and-a" class={linkClasses("qa")}>Soru-Cevap</a>
+      <a href="/services" class={linkClasses("services")}>Hizmetler</a>
+    </li>
+    <li>
+      <a href="https://instagram.com" referrerpolicy="origin" target="_blank">
+        <Instagram fill={"var(--color-brand-primary)"} width={20} height={20} />
+      </a>
     </li>
   </ul>
 </nav>

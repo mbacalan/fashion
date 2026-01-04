@@ -4,72 +4,71 @@ import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
 ---
 
-<Layout title="White Poplin Shirt — Hakkımızda">
-  <PageWrapper active="about">
-    <section class="space-y-8">
-      <div class="max-w-3xl space-y-4">
-        <p
-          class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase"
+<Layout title="White Poplin Shirt">
+  <PageWrapper active="about" mainId="top">
+    <div class="flex flex-col content-stretch gap-4 sm:flex-row sm:flex-wrap">
+      <div class="flex-1">
+        <article
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
         >
-          Hakkımızda
-        </p>
-        <h1 class="text-4xl font-semibold tracking-tight text-brand-ink">
-          Bir sonraki sürdürülebilir bölümünüzü şekillendiren stilistlerle
-          tanışın.
-        </h1>
+          <div
+            class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-sm bg-gradient-to-br shadow-xl"
+          >
+            <div class="absolute inset-0 flex flex-col justify-between p-5">
+              <span
+                class="bg-brand-secondary/25 text-brand-secondary w-max rounded-sm px-3 py-1 text-xs font-medium uppercase"
+              >
+                Yer tutucu
+              </span>
+              <span class="text-brand-secondary text-sm font-medium">
+                Gorsel acıklayıcı metin
+              </span>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <article
-        class="ring-brand-rose-ring/80 grid gap-8 rounded-lg bg-white p-5 shadow-[0_12px_32px_rgba(31,42,36,0.08)] ring-1 sm:p-8 md:grid-cols-2 md:items-center"
-      >
-        <div
-          class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-sm bg-gradient-to-br shadow-xl"
+      <div class="flex-1">
+        <article
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
         >
-          <div class="absolute inset-0 flex flex-col justify-between p-5">
-            <span
-              class="w-max rounded-sm bg-white/25 px-3 py-1 text-xs font-medium tracking-[0.16em] text-white/90 uppercase"
-            >
-              Atölye
-            </span>
-            <span class="text-sm font-medium text-white/80">
-              Kamera arkası ilham panosu kolajı
-            </span>
+          <h1 class="mb-2 text-center text-4xl font-semibold">Hakkımda</h1>
+
+          <p>
+            Merhaba, ben Esen Bacalan. İletişim alanında lisans eğitimimi
+            tamamladıktan sonra uzun yıllar kurumsal şirketlerde uluslararası
+            pazarlama yöneticiliği yaptım. Çocukluk hayalim olan moda alanındaki
+            eğitimimi ise 2019 yılında İstanbul Moda Akademisi’nde Moda Yönetimi
+            programıyla tamamladım.
+          </p>
+
+          <p>
+            Kurumsal deneyimimle moda bilgisini bir araya getiren bu yolculuk,
+            zamanla styling ve gardırop danışmanlığına evrilen bir yaklaşımın
+            temelini oluşturdu. 2023 yılında içerik üretmeye başladım;
+            Whitepoplinshirt ise 2025’te bu yaklaşımın netleştiği bir platform
+            hâline geldi.
+          </p>
+
+          <p>
+            Bugün odağım; trendleri dayatmadan, bilinçli alışverişi merkeze
+            alan, kişinin yaşam tarzına ve ihtiyaçlarına uygun stil çözümleri
+            sunmak. Sahip olduklarını doğru şekilde kullanarak işlevsel ve
+            sürdürülebilir bir gardırop oluşturmana destek oluyorum.
+          </p>
+
+          <p>
+            Eğer stilini netleştirmek ve dolabınla daha güçlü bir ilişki kurmak
+            istiyorsan, bu yolculukta sana rehberlik etmek için buradayım.
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-0.5">
+            <LinkButton
+              href="mailto:info@whitepoplinshirt.com"
+              text="info@whitepoplinshirt.com"
+            />
           </div>
-        </div>
-
-        <div class="min-w-0 space-y-4">
-          <p
-            class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase"
-          >
-            Çalışma Biçimimiz
-          </p>
-          <h2
-            class="text-3xl font-semibold tracking-tight text-brand-ink sm:text-4xl"
-          >
-            Her anlatı kurgusu için özenle uyarlanmış iş birlikleri.
-          </h2>
-          <p class="text-brand-ink text-base leading-relaxed">
-            Markanızın dünyasına dalıyor, ilham panolarından provalara ve
-            kampanya koreografisine kadar ortak bir dil kuruyoruz. Her iş
-            birliği, sürdürülebilir malzeme araştırması, trend yetkinliği ve
-            üretime hazır detaylarla güçleniyor; böylece ekiplerimiz uyum
-            içinde, hızlı ve bilinçli hareket ediyor.
-          </p>
-          <p class="text-brand-ink text-base leading-relaxed">
-            Tam kapsamlı bir görünüm gelişimine ya da destekleyici bir yaratıcı
-            göze ihtiyaç duyduğunuzda, doğru paydaşları bir araya getiriyor ve
-            podyumdan perakendeye uzanan ölçeklenebilir yönlendirmeyi
-            sağlıyoruz. Üretici topluluğumuz el işçiliğini ve gezegenimizi
-            merkeze alıyor; her giysi, aksesuar ve kare hikâyenizi
-            güçlendirirken izimizi hafifletiyor.
-          </p>
-
-          <LinkButton
-            href="mailto:whitepoplinshirt@gmail.com"
-            text="whitepoplinshirt@gmail.com"
-          />
-        </div>
-      </article>
-    </section>
+        </article>
+      </div>
+    </div>
   </PageWrapper>
 </Layout>

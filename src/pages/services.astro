@@ -1,0 +1,121 @@
+---
+import PageWrapper from "../components/page-wrapper.astro";
+import Layout from "../layouts/base-layout.astro";
+import LinkButton from "../components/link-button.astro";
+
+// TODO: Gradient is unused, can be applied for images otherwise remove
+const services = [
+  {
+    title: "Online Styling Seansı (1 saat)",
+    details: [
+      "Bu bir saatlik online styling seansında, gardırobunuzu detaylı bir şekilde birlikte analiz ediyoruz. Mevcut parçalarınızı kategorize edip, en verimli şekilde nasıl kullanabileceğinizi değerlendiriyor, stilinize uygun kombinler oluşturuyor ve styling ile ilgili tüm sorularınızı yanıtlıyorum.",
+      "Seans sırasında stilinizi güçlendirecek ancak gardırobunuzda eksik olan temel parçaları belirliyorum. Seansın ardından; size özel stil önerileri ve ihtiyaçlarınıza uygun satın alma linklerini içeren kişiselleştirilmiş bir e-posta paylaşıyorum.",
+      "Bu hizmet; kişisel stilini netleştirmek, gardırobunu daha işlevsel hâle getirmek ve her gün ne giyeceğine kolayca karar verebilmek isteyen kişiler için ideal bir başlangıç seansıdır.",
+    ],
+    gradient:
+      "from-brand-primary/80 via-brand-primary-pop/60 to-brand-secondary/55",
+  },
+  {
+    title: "Mini Online Styling Seansı (30dk)",
+    details: [
+      "Bu hizmet;",
+      "- Belirli etkinliklere özel kombin yapmak isteyenler,",
+      "- Gardırobundaki bazı parçaları- sevdiği halde- nasıl kombinleyeceğini bilemeyenler",
+      "- Bir stil danışmanıyla çalışma deneyimi yaşamak isteyenler ve",
+      "- Kişisel stilini oturtmuş ancak farklı kombinler oluşturma konusunda yeni bir bakış açısı arayanlar",
+      "için, kısa ancak bilgilendirici bir seanstır.",
+    ],
+    gradient:
+      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
+  },
+  {
+    title: "Online Gardırop Temizliği ve Düzenleme Sistemi (1.5 saat)",
+    details: [
+      "Giyinmek, kombin yapmak ve gardırobunda vakit geçirmek keyifli olmalı; stresli değil. Ancak gardırobumuz kıyafetle dolup taştığında, çoğu zaman neye sahip olduğumuzu unutur; sürekli alışveriş yapmamıza rağmen “ne giyeceğim?” sorusuyla karşı karşıya kalırız. Bu döngü, zamanla stres ve kaygıya dönüşebilir.",
+      "Whitepoplinshirt ile gerçekleştirdiğimiz bu 1,5 saatlik online gardırop temizleme ve düzenleme sistemi seansında, tüm gardırobunu birlikte ele alıyor ve yalnızca 5 adımlık etkili bir sistemle onu daha kullanışlı, daha sakin, daha organize ve en önemlisi giyinmenin yeniden keyifli olduğu bir alana dönüştürüyoruz.",
+      "Seans sırasında; nasıl kombinleyeceğini bilmediğin ve dolabında uzun süredir atıl kalan parçaları da günlük hayatına tekrar kazandırıyoruz. Seansın ardından gardırobun, içinde vakit geçirmekten keyif alacağın ve rahatça kombin yapabileceğin yeni favori alanın hâline geliyor.",
+      "Bu hizmet; kişisel stilini büyük ölçüde oturtmuş ancak kombin yaparken kendini tembel ya da ilhamsız hisseden, gardırobundaki kaosu nasıl düzene sokacağını bilemeyen ve özellikle mevsim geçişlerinde gardırobunu daha etkili bir sistemle yönetmek isteyenler için idealdir."
+    ],
+    imageLabel: "Yer tutucu görsel — Stüdyo ışık düzeni",
+    gradient:
+      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
+  },
+];
+---
+
+<Layout title="White Poplin Shirt">
+  <PageWrapper active="services" mainId="top">
+    <div class="flex flex-col content-stretch gap-4 sm:flex-row sm:flex-wrap">
+      {
+        services.map((service, index) => {
+          const isOdd = index % 2 === 1;
+          const isLast = index == services.length - 1;
+
+          return (
+            <div class={`flex ${isLast ? "w-full" : "flex-1"}`}>
+              <article
+                class={`ring-brand-secondary text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8 ${
+                  isOdd
+                    ? "bg-brand-secondary"
+                    : "bg-brand-accent"
+                }`}
+              >
+                <h2 class="mb-2 text-4xl font-semibold">
+                  {service.title}
+                </h2>
+
+                <div class="space-y-2">
+                  {service.details.map((detail) => (
+                    <p>{detail}</p>
+                  ))}
+                </div>
+
+                <div class="mt-auto flex flex-wrap items-center gap-2 pt-0.5">
+                  <LinkButton
+                    href={import.meta.env.CALENDAR_URL}
+                    text="Şimdi Randevu Al"
+                  />
+                </div>
+              </article>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <aside class="ring-brand-secondary bg-brand-accent text-brand-primary rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8">
+      <p class="mb-2 text-2xl font-semibold">
+        BAŞARILI BİR SEANS İÇİN İPUÇLARI:
+      </p>
+
+      <ul class="list-disc space-y-2 pl-5">
+        <li>Soracağınız soruları seans öncesi hazırlayınız.</li>
+
+        <li>
+          “Nasıl kombinlerim?” dediğiniz parçaları seans öncesi hazırlayınız.
+        </li>
+
+        <li>
+          Seans sırasında tartıştığımız kombinlerin fotoğraflarını çekmeyi
+          unutmayınız. Böylece o parçalarla farklı looklar için ilham noktanız
+          oluşmuş olur (kombinleri ister yere serip fotoğrafını çekebilir,
+          isterseniz üzerinizde denerken fotoğraflayabilirsiniz).
+        </li>
+
+        <li>
+          Seansa Ipad veya Laptop ile katılmanızı tavsiye ederiz. Böylece seans
+          sırasında telefonunuzla fotoğraf çekme olanağınız olacaktır.
+        </li>
+
+        <li>
+          Dilerseniz seans sırasında not alabilir veya seansı kaydedebilirsiniz.
+        </li>
+      </ul>
+
+      <p class="mt-4 font-semibold">
+        SEANS İPTALİ KABUL EDİLMEMEKTEDİR. Ancak, seanstan 24 saat öncesine kadar
+        slotunuzu başka bir tarihe yeniden organize edebilirsiniz.
+      </p>
+    </aside>
+  </PageWrapper>
+</Layout>

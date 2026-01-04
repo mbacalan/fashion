@@ -2,111 +2,73 @@
 import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
-
-const services = [
-  {
-    tagline: "İmza Hizmet 01",
-    title: "Podyuma Hazır Stil Kürasyonu",
-    teaser:
-      "Stüdyomuzun vizyonunu günlük giyime taşıyan, mevsimsiz ve sürdürülebilir bir gardırop hikâyesi yazıyoruz.",
-    detail:
-      "Her kombini için hikâye panoları kurguluyor, dokuları özenle katmanlıyor ve etik üreticilerden seçtiğimiz aksesuarlarla lansmanınızı ya da yenilenmenizi tamamlıyoruz.",
-    highlights: ["Renk paleti haritalama", "Görsel hikaye kürasyonu"],
-    imageLabel: "Yer tutucu görsel — Editoryal kolaj",
-    gradient:
-      "from-brand-primary/80 via-brand-primary-pop/60 to-brand-secondary/55",
-  },
-  {
-    tagline: "İmza Hizmet 02",
-    title: "Kampanya Yaratıcı Yönü",
-    teaser:
-      "Trend döngülerine yetişen fakat bütünüyle size ait kalan sürdürülebilir bir lansman deneyimi kurguluyoruz.",
-    detail:
-      "Kadro brieflerinden set düzenine kadar her adımı; baskı, sosyal medya ve podyumda ritmimizi koruyacak şekilde, düşük etki stratejileriyle orkestre ediyoruz.",
-    highlights: ["Konsept ilham panoları", "Kadro planlama desteği"],
-    imageLabel: "Yer tutucu görsel — Stüdyo ışık düzeni",
-    gradient:
-      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
-  },
-];
 ---
 
-<Layout title="White Poplin Shirt — Modaya Yön Veren Hizmetler">
+<Layout title="White Poplin Shirt">
   <PageWrapper active="home" mainId="top">
-    <section class="space-y-8">
-      <div class="max-w-3xl space-y-4">
-        <p
-          class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase"
+    <div class="flex flex-col content-stretch gap-4 sm:flex-row sm:flex-wrap">
+      <div class="flex-1">
+        <article
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
         >
-          Hizmetlerimiz
-        </p>
-        <h1 class="text-4xl font-semibold tracking-tight text-brand-ink">
-          Markalar ve cesur bireyler için sürdürülebilir moda hikâyeleri.
-        </h1>
+          <h1 class="mb-2 text-center text-4xl font-semibold">
+            Gardırobtaki parçalarla styling yapmak, iyi bir terapi seansı
+            gibidir
+          </h1>
+
+          <p>
+            Daha fazlasını satın almadan, dolabında zaten var olan parçalarla
+            stilini netleştirmek mümkün. Sen de dolabındaki her bir parçayı
+            severek giymek ve stilini daha iyi tanımak istiyorsan,
+            Whitepoplinshirt’e hoş geldin.
+          </p>
+
+          <p>
+            Moda, styling ve bilinçli alışveriş üzerine paylaşımlar yapan
+            Whitepoplinshirt, zamanla senden gelen yoğun styling ve gardırop
+            danışmanlığı talepleriyle bugün bu noktaya geldi.
+            Whitepoplinshirt’te amaç; dolabındaki parçaları yeniden keşfetmeni,
+            gardırobunu işlevsel hale getirmeni ve sana iyi hissettiren bir stil
+            oluşturmanı sağlamak. Bu yolculukta sana rehberlik etmek, kişisel
+            stilini keşfederken yanında olmak için heyecanlıyım. Eğer bu
+            alanlarda desteğe ihtiyaç duyduğunu hissediyorsan, doğru yerdesin.
+          </p>
+
+          <p>
+            Bu yolculukta sana rehberlik etmek, kişisel stilini keşfederken
+            yanında olmak için heyecanlıyım. Eğer bu alanlarda desteğe ihtiyaç
+            duyduğunu hissediyorsan, doğru yerdesin.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2 pt-0.5">
+            <LinkButton
+              href={import.meta.env.CALENDAR_URL}
+              text="Şimdi Randevu Al"
+            />
+          </div>
+        </article>
       </div>
 
-      <div class="space-y-6">
-        {
-          services.map((service, index) => {
-            const isOdd = index % 2 === 1;
-            return (
-              <article
-                class={`grid gap-8 rounded-md p-6 shadow-[0_12px_32px_rgba(31,42,36,0.08)] ring-1 sm:p-8 lg:grid-cols-2 lg:items-center ${
-                  isOdd
-                    ? "bg-brand-secondary-wash ring-brand-secondary-ring/80"
-                    : "bg-brand-primary-soft ring-brand-rose-ring/80"
-                }`}
+      <div class="flex-1">
+        <article
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
+        >
+          <div
+            class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-sm bg-gradient-to-br shadow-xl"
+          >
+            <div class="absolute inset-0 flex flex-col justify-between p-5">
+              <span
+                class="bg-brand-secondary/25 text-brand-secondary w-max rounded-sm px-3 py-1 text-xs font-medium uppercase"
               >
-                <div class={`order-1 ${isOdd ? "lg:order-2" : "lg:order-1"}`}>
-                  <div
-                    class={`relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br shadow-xl ${service.gradient}`}
-                  >
-                    <div class="absolute inset-0 flex flex-col justify-between p-5">
-                      <span class="w-max rounded-sm bg-white/25 px-3 py-1 text-xs font-medium tracking-[0.16em] text-white/90 uppercase">
-                        Yer Tutucu
-                      </span>
-                      <span class="text-sm font-medium text-white/80">
-                        {service.imageLabel}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class={`order-2 space-y-4 ${isOdd ? "lg:order-1" : "lg:order-2"}`}
-                >
-                  <p class="text-brand-secondary text-xs font-medium tracking-[0.16em] uppercase">
-                    {service.tagline}
-                  </p>
-                  <h2 class="text-3xl font-semibold tracking-tight text-brand-ink sm:text-4xl">
-                    {service.title}
-                  </h2>
-                  <p class="text-brand-ink text-base leading-relaxed">
-                    {service.teaser}
-                  </p>
-                  <p class="text-brand-ink text-base leading-relaxed">
-                    {service.detail}
-                  </p>
-                  <ul class="flex flex-wrap gap-2">
-                    {service.highlights.map((highlight) => (
-                      <li>
-                        <span class="border-brand-highlight-border bg-brand-highlight-bg text-brand-highlight-text inline-flex items-center rounded-sm border px-3 py-1.5 text-xs font-medium tracking-[0.14em] uppercase">
-                          {highlight}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div class="flex flex-wrap items-center gap-2 pt-0.5">
-                    <LinkButton
-                      href={import.meta.env.CALENDAR_URL}
-                      text="Şimdi Randevu Al"
-                    />
-                  </div>
-                </div>
-              </article>
-            );
-          })
-        }
+                Yer tutucu
+              </span>
+              <span class="text-brand-secondary text-sm font-medium">
+                Gorsel acıklayıcı metin
+              </span>
+            </div>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
   </PageWrapper>
 </Layout>

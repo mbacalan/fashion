@@ -2,7 +2,7 @@
 import Header from "./header.astro";
 
 interface Props {
-  active: "home" | "qa" | "about" | "consultation";
+  active: "home" | "about" | "services";
   contentClass?: string;
   mainClass?: string;
   mainId?: string;
@@ -19,12 +19,12 @@ const mainClasses = ["flex-1 px-5 py-8 sm:px-8", mainClass]
   .filter(Boolean)
   .join(" ");
 
-const containerClasses = ["mx-auto w-full max-w-6xl", contentClass]
+const containerClasses = ["mx-auto w-full", contentClass]
   .filter(Boolean)
   .join(" ");
 ---
 
-<div class="flex min-h-screen flex-col">
+<div class="flex flex-1 flex-col">
   <Header active={active} />
   <main id={mainId} class={mainClasses}>
     <div class={containerClasses}>
