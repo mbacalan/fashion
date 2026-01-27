@@ -4,18 +4,20 @@ import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"a"> {
   href: string;
   text: string;
+  iconClass?: string;
 }
 
-const { href, text, target, referrerpolicy } = Astro.props;
+const { href, text, iconClass, target, referrerpolicy } = Astro.props;
 ---
 
-<div class="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
+<div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
   <a
     href={href}
     target={target ?? "_blank"}
     referrerpolicy={referrerpolicy ?? "same-origin"}
     class="bg-brand-primary focus-visible:outline-brand-secondary/60 text-brand-secondary inline-flex w-full items-center justify-center rounded-sm px-5 py-3 text-lg font-semibold tracking-wide transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-offset-2 sm:w-auto sm:px-6"
   >
+    {iconClass ? <span class={iconClass + " mr-2"} /> : null}
     {text}
   </a>
 </div>

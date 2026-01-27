@@ -4,35 +4,16 @@ import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
 ---
 
-<Layout title="White Poplin Shirt">
+<Layout title="WhitePoplinShirt">
   <PageWrapper active="about" mainId="top">
     <div class="flex flex-col content-stretch gap-4 sm:flex-row sm:flex-wrap">
       <div class="flex-1">
         <article
-          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 leading-relaxed ring-2 sm:p-8"
         >
-          <div
-            class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-sm bg-gradient-to-br shadow-xl"
-          >
-            <div class="absolute inset-0 flex flex-col justify-between p-5">
-              <span
-                class="bg-brand-secondary/25 text-brand-secondary w-max rounded-sm px-3 py-1 text-xs font-medium uppercase"
-              >
-                Yer tutucu
-              </span>
-              <span class="text-brand-secondary text-sm font-medium">
-                Gorsel acıklayıcı metin
-              </span>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="flex-1">
-        <article
-          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
-        >
-          <h1 class="mb-2 text-center text-4xl font-semibold">Hakkımda</h1>
+          <h1 class="mb-2 text-center text-2xl font-semibold uppercase">
+            Hakkımda
+          </h1>
 
           <p>
             Merhaba, ben Esen Bacalan. İletişim alanında lisans eğitimimi
@@ -46,7 +27,7 @@ import LinkButton from "../components/link-button.astro";
             Kurumsal deneyimimle moda bilgisini bir araya getiren bu yolculuk,
             zamanla styling ve gardırop danışmanlığına evrilen bir yaklaşımın
             temelini oluşturdu. 2023 yılında içerik üretmeye başladım;
-            Whitepoplinshirt ise 2025’te bu yaklaşımın netleştiği bir platform
+            WhitePoplinShirt ise 2025’te bu yaklaşımın netleştiği bir platform
             hâline geldi.
           </p>
 
@@ -65,7 +46,35 @@ import LinkButton from "../components/link-button.astro";
             <LinkButton
               href="mailto:info@whitepoplinshirt.com"
               text="info@whitepoplinshirt.com"
+              iconClass="icon-[ri--mail-send-line] text-brand-accent text-2xl"
             />
+
+            <LinkButton
+              href={import.meta.env.INSTAGRAM_URL}
+              text="Instagram"
+              iconClass="icon-[ri--instagram-line] text-brand-accent text-2xl"
+            />
+          </div>
+        </article>
+      </div>
+
+      <div class="flex-1">
+        <article
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
+        >
+          <div
+            class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-sm bg-gradient-to-br shadow-xl"
+          >
+            <div class="absolute inset-0 flex flex-col justify-between p-5">
+              <span
+                class="bg-brand-secondary/25 text-brand-secondary w-max rounded-sm px-3 py-1 text-xs font-medium uppercase"
+              >
+                Yer tutucu
+              </span>
+              <span class="text-brand-secondary text-sm font-medium">
+                Gorsel acıklayıcı metin
+              </span>
+            </div>
           </div>
         </article>
       </div>

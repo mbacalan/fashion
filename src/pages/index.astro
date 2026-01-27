@@ -4,47 +4,44 @@ import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
 ---
 
-<Layout title="White Poplin Shirt">
+<Layout title="WhitePoplinShirt">
   <PageWrapper active="home" mainId="top">
     <div class="flex flex-col content-stretch gap-4 sm:flex-row sm:flex-wrap">
       <div class="flex-1">
         <article
-          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
+          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 leading-relaxed ring-2 sm:p-8"
         >
-          <h1 class="mb-2 text-center text-4xl font-semibold">
+          <h1 class="mb-2 text-center text-2xl font-semibold uppercase">
             Gardırobtaki parçalarla styling yapmak, iyi bir terapi seansı
             gibidir
           </h1>
 
-          <p>
+          <p class="text-left">
             Daha fazlasını satın almadan, dolabında zaten var olan parçalarla
             stilini netleştirmek mümkün. Sen de dolabındaki her bir parçayı
             severek giymek ve stilini daha iyi tanımak istiyorsan,
-            Whitepoplinshirt’e hoş geldin.
+            WhitePoplinShirt’e hoş geldin.
           </p>
 
-          <p>
+          <p class="text-left">
             Moda, styling ve bilinçli alışveriş üzerine paylaşımlar yapan
-            Whitepoplinshirt, zamanla senden gelen yoğun styling ve gardırop
+            WhitePoplinShirt, zamanla senden gelen yoğun styling ve gardırop
             danışmanlığı talepleriyle bugün bu noktaya geldi.
-            Whitepoplinshirt’te amaç; dolabındaki parçaları yeniden keşfetmeni,
+            WhitePoplinShirt’te amaç; dolabındaki parçaları yeniden keşfetmeni,
             gardırobunu işlevsel hale getirmeni ve sana iyi hissettiren bir stil
             oluşturmanı sağlamak. Bu yolculukta sana rehberlik etmek, kişisel
             stilini keşfederken yanında olmak için heyecanlıyım. Eğer bu
             alanlarda desteğe ihtiyaç duyduğunu hissediyorsan, doğru yerdesin.
           </p>
 
-          <p>
+          <p class="text-left">
             Bu yolculukta sana rehberlik etmek, kişisel stilini keşfederken
             yanında olmak için heyecanlıyım. Eğer bu alanlarda desteğe ihtiyaç
             duyduğunu hissediyorsan, doğru yerdesin.
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-0.5">
-            <LinkButton
-              href={import.meta.env.CALENDAR_URL}
-              text="Şimdi Randevu Al"
-            />
+            <LinkButton href="/hizmetler" text="Şimdi Randevu Al" />
           </div>
         </article>
       </div>

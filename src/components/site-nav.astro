@@ -1,6 +1,4 @@
 ---
-import Instagram from "../assets/icons/instagram.svg";
-
 interface SiteNavProps {
   active: "home" | "about" | "services";
 }
@@ -20,14 +18,15 @@ const linkClasses = (key: SiteNavProps["active"]) =>
       <a href="/" class={linkClasses("home")}>Ana Sayfa</a>
     </li>
     <li>
-      <a href="/about" class={linkClasses("about")}>Hakkımda</a>
+      <a href="/hakkimda" class={linkClasses("about")}>Hakkımda</a>
     </li>
     <li>
-      <a href="/services" class={linkClasses("services")}>Hizmetler</a>
+      <a href="/hizmetler" class={linkClasses("services")}>Hizmetler</a>
     </li>
     <li>
       <a href="https://instagram.com" referrerpolicy="origin" target="_blank">
-        <Instagram fill={"var(--color-brand-primary)"} width={20} height={20} />
+        <span class="icon-[ri--instagram-line] text-brand-primary text-2xl"
+        ></span>
       </a>
     </li>
   </ul>

@@ -1,0 +1,32 @@
+---
+import Button from "./button.astro";
+
+type Props = {
+  items: string[];
+  note: string;
+};
+
+const { items, note } = Astro.props as Props;
+---
+
+<dialog
+  id="session-tips-dialog"
+  aria-labelledby="session-tips-title"
+  class="ring-brand-secondary bg-brand-accent text-brand-primary backdrop:bg-brand-primary/40 mx-4 my-6 w-full max-w-xl rounded-md p-0 text-lg leading-relaxed ring-2 sm:mx-auto sm:my-auto"
+>
+  <div class="p-6 sm:p-8">
+    <ul class="list-disc space-y-2 pl-5">
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <p class="mt-4 font-semibold">{note}</p>
+
+    <div
+      class="mb-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
+    >
+      <form method="dialog">
+        <Button text="Kapat" type="submit" />
+      </form>
+    </div>
+  </div>
+</dialog>
