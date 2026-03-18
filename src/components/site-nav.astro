@@ -7,8 +7,10 @@ const { active } = Astro.props as SiteNavProps;
 
 const linkClasses = (key: SiteNavProps["active"]) =>
   [
-    "relative inline-flex items-center rounded-sm px-3 py-1",
-    active === key && "bg-brand-accent",
+    "relative inline-flex items-center px-1 py-1 border-b-2 transition-opacity",
+    active === key
+      ? "border-brand-primary font-semibold"
+      : "border-transparent opacity-70 hover:opacity-100",
   ].join(" ");
 ---
 

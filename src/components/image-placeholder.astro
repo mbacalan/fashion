@@ -1,0 +1,24 @@
+---
+interface Props {
+  aspect?: string;
+  class?: string;
+}
+
+const { aspect = "aspect-[4/3]", class: className = "" } = Astro.props;
+---
+
+<div
+  class={`ring-brand-accent/40 relative w-full overflow-hidden rounded-md bg-gradient-to-br from-brand-primary to-brand-accent/20 ring-2 ${aspect} ${className}`}
+>
+  <div class="ring-brand-accent/20 absolute inset-3 rounded-sm ring-1"></div>
+  <div class="absolute inset-0 flex flex-col justify-between p-5">
+    <span
+      class="bg-brand-secondary/25 text-brand-secondary w-max rounded-sm px-3 py-1 text-xs font-medium uppercase"
+    >
+      Yer tutucu
+    </span>
+    <span class="text-brand-secondary text-sm font-medium">
+      Gorsel acıklayıcı metin
+    </span>
+  </div>
+</div>

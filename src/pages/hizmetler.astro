@@ -2,23 +2,21 @@
 import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
-import Button from "../components/button.astro";
 import TipsDialogue from "../components/tips-dialogue.astro";
 
-// TODO: Gradient is unused, can be applied for images otherwise remove
 const services = [
   {
-    title: "Online Styling Seansı (1 saat)",
+    title: "Online Styling Seansı",
+    duration: "1 saat",
     details: [
       "Bu bir saatlik online styling seansında, gardırobunuzu detaylı bir şekilde birlikte analiz ediyoruz. Mevcut parçalarınızı kategorize edip, en verimli şekilde nasıl kullanabileceğinizi değerlendiriyor, stilinize uygun kombinler oluşturuyor ve styling ile ilgili tüm sorularınızı yanıtlıyorum.",
       "Seans sırasında stilinizi güçlendirecek ancak gardırobunuzda eksik olan temel parçaları belirliyorum. Seansın ardından; size özel stil önerileri ve ihtiyaçlarınıza uygun satın alma linklerini içeren kişiselleştirilmiş bir e-posta paylaşıyorum.",
       "Bu hizmet; kişisel stilini netleştirmek, gardırobunu daha işlevsel hâle getirmek ve her gün ne giyeceğine kolayca karar verebilmek isteyen kişiler için ideal bir başlangıç seansıdır.",
     ],
-    gradient:
-      "from-brand-primary/80 via-brand-primary-pop/60 to-brand-secondary/55",
   },
   {
-    title: "Mini Online Styling Seansı (30dk)",
+    title: "Mini Online Styling Seansı",
+    duration: "30dk",
     details: [
       "Bu hizmet;",
       "- Belirli etkinliklere özel kombin yapmak isteyenler,",
@@ -27,27 +25,23 @@ const services = [
       "- Kişisel stilini oturtmuş ancak farklı kombinler oluşturma konusunda yeni bir bakış açısı arayanlar",
       "için, kısa ancak bilgilendirici bir seanstır.",
     ],
-    gradient:
-      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
   },
   {
-    title: "Online Gardırop Temizliği ve Düzenleme Sistemi (1.5 saat)",
+    title: "Online Gardırop Temizliği ve Düzenleme Sistemi",
+    duration: "1.5 saat",
     details: [
-      "Giyinmek, kombin yapmak ve gardırobunda vakit geçirmek keyifli olmalı; stresli değil. Ancak gardırobumuz kıyafetle dolup taştığında, çoğu zaman neye sahip olduğumuzu unutur; sürekli alışveriş yapmamıza rağmen “ne giyeceğim?” sorusuyla karşı karşıya kalırız. Bu döngü, zamanla stres ve kaygıya dönüşebilir.",
+      "Giyinmek, kombin yapmak ve gardırobunda vakit geçirmek keyifli olmalı; stresli değil. Ancak gardırobumuz kıyafetle dolup taştığında, çoğu zaman neye sahip olduğumuzu unutur; sürekli alışveriş yapmamıza rağmen \u201Cne giyeceğim?\u201D sorusuyla karşı karşıya kalırız. Bu döngü, zamanla stres ve kaygıya dönüşebilir.",
       "WhitePoplinShirt ile gerçekleştirdiğimiz bu 1,5 saatlik online gardırop temizleme ve düzenleme sistemi seansında, tüm gardırobunu birlikte ele alıyor ve yalnızca 5 adımlık etkili bir sistemle onu daha kullanışlı, daha sakin, daha organize ve en önemlisi giyinmenin yeniden keyifli olduğu bir alana dönüştürüyoruz.",
       "Seans sırasında; nasıl kombinleyeceğini bilmediğin ve dolabında uzun süredir atıl kalan parçaları da günlük hayatına tekrar kazandırıyoruz. Seansın ardından gardırobun, içinde vakit geçirmekten keyif alacağın ve rahatça kombin yapabileceğin yeni favori alanın hâline geliyor.",
       "Bu hizmet; kişisel stilini büyük ölçüde oturtmuş ancak kombin yaparken kendini tembel ya da ilhamsız hisseden, gardırobundaki kaosu nasıl düzene sokacağını bilemeyen ve özellikle mevsim geçişlerinde gardırobunu daha etkili bir sistemle yönetmek isteyenler için idealdir.",
     ],
-    imageLabel: "Yer tutucu görsel — Stüdyo ışık düzeni",
-    gradient:
-      "from-brand-secondary/70 via-brand-secondary-pop/55 to-brand-primary/50",
   },
 ];
 
 const sessionTips = {
   items: [
     "Soracağınız soruları seans öncesi hazırlayınız.",
-    "“Nasıl kombinlerim?” dediğiniz parçaları seans öncesi hazırlayınız.",
+    "\u201CNasıl kombinlerim?\u201D dediğiniz parçaları seans öncesi hazırlayınız.",
     "Seans sırasında tartıştığımız kombinlerin fotoğraflarını çekmeyi unutmayınız. Böylece o parçalarla farklı looklar için ilham noktanız oluşmuş olur (kombinleri ister yere serip fotoğrafını çekebilir, isterseniz üzerinizde denerken fotoğraflayabilirsiniz).",
     "Seansa Ipad veya Laptop ile katılmanızı tavsiye ederiz. Böylece seans sırasında telefonunuzla fotoğraf çekme olanağınız olacaktır.",
     "Dilerseniz seans sırasında not alabilir veya seansı kaydedebilirsiniz.",
@@ -58,82 +52,51 @@ const sessionTips = {
 
 <Layout title="WhitePoplinShirt">
   <PageWrapper active="services" mainId="top">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="divide-brand-accent/20 divide-y">
       {
-        services.map((service, index) => {
-          const isOdd = index % 2 === 1;
-          const isLast = index == services.length - 1;
-
-          return (
-            <article
-              class={`ring-brand-secondary text-brand-primary flex h-full flex-col rounded-md p-6 leading-relaxed ring-2 sm:p-8 ${
-                isOdd ? "bg-brand-secondary" : "bg-brand-accent"
-              }`}
-            >
-              <h2 class="mb-2 text-center text-2xl font-semibold uppercase">
+        services.map((service, index) => (
+          <div
+            class="animate-fade-in-up flex flex-col gap-6 py-6 sm:flex-row sm:gap-12 sm:py-12"
+            style={`animation-delay: ${index * 150}ms`}
+          >
+            <div class="flex flex-col sm:w-56 sm:shrink-0">
+              <span class="font-sans-headline text-brand-secondary text-7xl leading-none font-bold">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h2 class="text-brand-secondary mt-2 text-xl font-bold tracking-wide uppercase">
                 {service.title}
               </h2>
+              <p class="text-brand-accent/60 mt-1 text-xs font-light tracking-widest uppercase">
+                {service.duration}
+              </p>
+            </div>
 
-              <div class="space-y-2">
+            <div class="flex flex-1 flex-col gap-6">
+              <div class="space-y-3">
                 {service.details.map((detail) => (
-                  <p>{detail}</p>
+                  <p class="text-brand-accent/85 text-sm leading-relaxed font-light">
+                    {detail}
+                  </p>
                 ))}
               </div>
-
-              <div class="mt-auto flex flex-wrap items-center gap-3">
+              <div class="flex flex-wrap gap-3">
                 <LinkButton
                   href={import.meta.env.CALENDAR_URL}
                   text="Şimdi Randevu Al"
                 />
-                <Button
-                  type="button"
-                  data-dialog-open="session-tips-dialog"
-                  text="Seans Icin Ipuclari"
+                <LinkButton
+                  href="#session-tips"
+                  target="_self"
+                  variant="ghost"
+                  text="Seans İçin İpuçları"
                 />
               </div>
-            </article>
-          );
-        })
+            </div>
+          </div>
+        ))
       }
     </div>
 
     <TipsDialogue items={sessionTips.items} note={sessionTips.note} />
-
-    <aside
-      class="ring-brand-secondary bg-brand-accent text-brand-primary rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
-    >
-      <p class="mb-2 text-2xl font-semibold uppercase">
-        Basarili bir seans icin ipuclari
-      </p>
-
-      <ul class="list-disc space-y-2 pl-5">
-        {sessionTips.items.map((item) => <li>{item}</li>)}
-      </ul>
-
-      <p class="mt-4 font-semibold">{sessionTips.note}</p>
-    </aside>
   </PageWrapper>
 </Layout>
-
-<script>
-  const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
-
-  dialogTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      const dialogId = trigger.getAttribute("data-dialog-open");
-      if (!dialogId) return;
-      const dialog = document.getElementById(dialogId);
-      if (dialog instanceof HTMLDialogElement) {
-        dialog.showModal();
-      }
-    });
-  });
-
-  document.querySelectorAll("dialog").forEach((dialog) => {
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) {
-        dialog.close();
-      }
-    });
-  });
-</script>
