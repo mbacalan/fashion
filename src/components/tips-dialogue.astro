@@ -1,6 +1,4 @@
 ---
-import Button from "./button.astro";
-
 type Props = {
   items: string[];
   note: string;
@@ -9,24 +7,51 @@ type Props = {
 const { items, note } = Astro.props as Props;
 ---
 
-<dialog
-  id="session-tips-dialog"
-  aria-labelledby="session-tips-title"
-  class="ring-brand-secondary bg-brand-accent text-brand-primary backdrop:bg-brand-primary/40 mx-4 my-6 w-full max-w-xl rounded-md p-0 text-lg leading-relaxed ring-2 sm:mx-auto sm:my-auto"
+<section
+  id="session-tips"
+  class="border-brand-accent/20 animate-fade-in border-t"
+  style="animation-delay: 450ms"
 >
-  <div class="p-6 sm:p-8">
-    <ul class="list-disc space-y-2 pl-5">
-      {items.map((item) => <li>{item}</li>)}
-    </ul>
+  <div class="flex flex-col gap-6 py-6 sm:flex-row sm:gap-12 sm:py-12">
+    <div class="flex flex-col sm:w-56 sm:shrink-0">
+      <span
+        class="icon-[ri--sparkling-2-line] text-brand-secondary text-5xl leading-none"
+      ></span>
+      <h2
+        class="text-brand-secondary mt-3 text-xl font-bold tracking-wide uppercase"
+      >
+        Seans Hazırlığı
+      </h2>
+      <p
+        class="text-brand-accent/60 mt-1 text-xs font-light tracking-widest uppercase"
+      >
+        İpuçları
+      </p>
+    </div>
 
-    <p class="mt-4 font-semibold">{note}</p>
+    <div class="flex flex-1 flex-col gap-6">
+      <ol class="space-y-4">
+        {
+          items.map((item, i) => (
+            <li class="flex items-start gap-4">
+              <span class="font-sans-headline text-brand-secondary w-7 shrink-0 text-2xl leading-tight font-bold tabular-nums">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p class="text-brand-accent/85 text-sm leading-relaxed font-light">
+                {item}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
 
-    <div
-      class="mb-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
-    >
-      <form method="dialog">
-        <Button text="Kapat" type="submit" />
-      </form>
+      <div class="border-brand-secondary/50 border-l-2 pl-4">
+        <p
+          class="text-brand-secondary/70 text-xs leading-relaxed font-light tracking-wider uppercase"
+        >
+          {note}
+        </p>
+      </div>
     </div>
   </div>
-</dialog>
+</section>

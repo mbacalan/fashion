@@ -15,11 +15,11 @@ const {
   mainId,
 } = Astro.props as Props;
 
-const mainClasses = ["flex-1 px-5 py-8 sm:px-8", mainClass]
+const mainClasses = ["flex-1 px-5 py-5 sm:px-8 sm:py-8", mainClass]
   .filter(Boolean)
   .join(" ");
 
-const containerClasses = ["mx-auto w-full", contentClass]
+const containerClasses = ["mx-auto w-full max-w-6xl", contentClass]
   .filter(Boolean)
   .join(" ");
 ---

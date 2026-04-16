@@ -8,16 +8,20 @@ interface Props {
 const { active } = Astro.props as Props;
 ---
 
-<header class="bg-brand-secondary p-4 sm:px-8">
+<header
+  class="bg-brand-secondary border-brand-primary/20 border-b px-5 py-4 sm:px-8"
+>
   <div
     class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
   >
     <div class="flex items-center gap-4">
-      <div class="text-brand-primary flex flex-wrap items-end gap-x-1 text-4xl">
-        <a href="/">
-          <span>WhitePoplinShirt</span>
-        </a>
-      </div>
+      <a href="/" class="flex flex-col leading-tight">
+        <span
+          class="font-sans-headline text-brand-primary text-2xl font-bold tracking-widest"
+        >
+          WhitePoplinShirt
+        </span>
+      </a>
     </div>
     <div class="w-full sm:flex sm:w-auto sm:justify-end">
       <SiteNav active={active} />

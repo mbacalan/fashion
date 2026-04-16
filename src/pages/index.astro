@@ -2,69 +2,45 @@
 import PageWrapper from "../components/page-wrapper.astro";
 import Layout from "../layouts/base-layout.astro";
 import LinkButton from "../components/link-button.astro";
+import ImagePlaceholder from "../components/image-placeholder.astro";
 ---
 
 <Layout title="WhitePoplinShirt">
-  <PageWrapper active="home" mainId="top">
-    <div class="flex flex-col content-stretch gap-4 sm:flex-row sm:flex-wrap">
-      <div class="flex-1">
-        <article
-          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 leading-relaxed ring-2 sm:p-8"
+  <PageWrapper active="home" mainId="top" contentClass="flex flex-col gap-0">
+    <div class="flex flex-col gap-10 py-8 sm:flex-row sm:items-center sm:py-12">
+      <div class="flex flex-col gap-6 sm:flex-[3]">
+        <h1
+          class="text-brand-secondary animate-fade-in-up font-sans text-3xl leading-tight font-light italic sm:text-5xl"
         >
-          <h1 class="mb-2 text-center text-2xl font-semibold uppercase">
-            Gardırobtaki parçalarla styling yapmak, iyi bir terapi seansı
-            gibidir
-          </h1>
+          Gardırobtaki parçalarla styling yapmak, iyi bir terapi seansı gibidir
+        </h1>
 
-          <p class="text-left">
-            Daha fazlasını satın almadan, dolabında zaten var olan parçalarla
-            stilini netleştirmek mümkün. Sen de dolabındaki her bir parçayı
-            severek giymek ve stilini daha iyi tanımak istiyorsan,
-            WhitePoplinShirt’e hoş geldin.
-          </p>
+        <p
+          class="text-brand-accent/85 animate-fade-in-up animation-delay-150 leading-relaxed font-light"
+        >
+          Daha fazlasını satın almadan, dolabında zaten var olan parçalarla
+          stilini netleştirmek mümkün. Sen de dolabındaki her bir parçayı
+          severek giymek ve stilini daha iyi tanımak istiyorsan,
+          WhitePoplinShirt'e hoş geldin.
+        </p>
 
-          <p class="text-left">
-            Moda, styling ve bilinçli alışveriş üzerine paylaşımlar yapan
-            WhitePoplinShirt, zamanla senden gelen yoğun styling ve gardırop
-            danışmanlığı talepleriyle bugün bu noktaya geldi.
-            WhitePoplinShirt’te amaç; dolabındaki parçaları yeniden keşfetmeni,
-            gardırobunu işlevsel hale getirmeni ve sana iyi hissettiren bir stil
-            oluşturmanı sağlamak. Bu yolculukta sana rehberlik etmek, kişisel
-            stilini keşfederken yanında olmak için heyecanlıyım. Eğer bu
-            alanlarda desteğe ihtiyaç duyduğunu hissediyorsan, doğru yerdesin.
-          </p>
+        <p
+          class="text-brand-accent/85 animate-fade-in-up animation-delay-150 leading-relaxed font-light"
+        >
+          Moda, styling ve bilinçli alışveriş üzerine paylaşımlar yapan
+          WhitePoplinShirt, zamanla senden gelen yoğun styling ve gardırop
+          danışmanlığı talepleriyle bugün bu noktaya geldi. WhitePoplinShirt'te
+          amaç; dolabındaki parçaları yeniden keşfetmeni, gardırobunu işlevsel
+          hale getirmeni ve sana iyi hissettiren bir stil oluşturmanı sağlamak.
+        </p>
 
-          <p class="text-left">
-            Bu yolculukta sana rehberlik etmek, kişisel stilini keşfederken
-            yanında olmak için heyecanlıyım. Eğer bu alanlarda desteğe ihtiyaç
-            duyduğunu hissediyorsan, doğru yerdesin.
-          </p>
-
-          <div class="flex flex-wrap items-center gap-2 pt-0.5">
-            <LinkButton href="/hizmetler" text="Şimdi Randevu Al" />
-          </div>
-        </article>
+        <div class="animate-fade-in-up animation-delay-300">
+          <LinkButton href="/hizmetler" text="Şimdi Randevu Al" />
+        </div>
       </div>
 
-      <div class="flex-1">
-        <article
-          class="ring-brand-secondary bg-brand-accent text-brand-primary flex h-full flex-col justify-center gap-2 rounded-md p-6 text-lg leading-relaxed ring-2 sm:p-8"
-        >
-          <div
-            class="from-brand-primary via-brand-primary-pop/70 to-brand-secondary relative aspect-[4/3] w-full min-w-0 overflow-hidden rounded-sm bg-gradient-to-br shadow-xl"
-          >
-            <div class="absolute inset-0 flex flex-col justify-between p-5">
-              <span
-                class="bg-brand-secondary/25 text-brand-secondary w-max rounded-sm px-3 py-1 text-xs font-medium uppercase"
-              >
-                Yer tutucu
-              </span>
-              <span class="text-brand-secondary text-sm font-medium">
-                Gorsel acıklayıcı metin
-              </span>
-            </div>
-          </div>
-        </article>
+      <div class="animate-fade-in animation-delay-150 sm:flex-[2]">
+        <ImagePlaceholder aspect="aspect-[4/3] sm:aspect-[3/4]" />
       </div>
     </div>
   </PageWrapper>
