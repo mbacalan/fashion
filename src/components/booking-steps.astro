@@ -1,0 +1,52 @@
+---
+type Props = {
+  current: 1 | 2 | 3;
+};
+
+const { current } = Astro.props as Props;
+
+const steps = [
+  { n: 1, label: "Tarih & saat seç" },
+  { n: 2, label: "Ödeme" },
+  { n: 3, label: "Randevu onaylandı" },
+];
+---
+
+<ol class="flex items-center gap-2 sm:gap-4">
+  {
+    steps.map((step, i) => {
+      const done = step.n < current;
+      const active = step.n === current;
+      return (
+        <>
+          {i > 0 && (
+            <li
+              aria-hidden="true"
+              class={`h-px flex-1 ${step.n <= current ? "bg-brand-secondary/60" : "bg-brand-accent/20"}`}
+            />
+          )}
+          <li class="flex shrink-0 items-center gap-2" aria-current={active ? "step" : undefined}>
+            <span
+              class={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold tabular-nums ${
+                active
+                  ? "bg-brand-secondary text-brand-primary"
+                  : done
+                    ? "bg-brand-secondary/20 text-brand-secondary"
+                    : "border-brand-accent/30 text-brand-accent/50 border"
+              }`}
+            >
+              {done ? <span class="icon-[ri--check-line]" /> : step.n}
+            </span>
+            <span
+              class={`text-[11px] font-light tracking-wider uppercase sm:text-xs ${
+                step.n <= current ? "text-brand-secondary" : "text-brand-accent/50"
+              }`}
+            >
+              {step.label}
+            </span>
+          </li>
+        </>
+      );
+    })
+  }
+</ol>

@@ -1,0 +1,49 @@
+---
+import PageWrapper from "../components/page-wrapper.astro";
+import Layout from "../layouts/base-layout.astro";
+import LinkButton from "../components/link-button.astro";
+import BookingSteps from "../components/booking-steps.astro";
+---
+
+<Layout title="Teşekkürler — WhitePoplinShirt">
+  <PageWrapper active="services">
+    <div class="animate-fade-in-up flex flex-col gap-8">
+      <BookingSteps current={3} />
+
+      <div class="flex flex-col gap-4">
+        <span class="icon-[ri--checkbox-circle-line] text-brand-secondary text-5xl leading-none"></span>
+        <h1 class="text-brand-secondary text-2xl font-bold tracking-wide uppercase">
+          Teşekkürler!
+        </h1>
+        <p id="booking-summary" class="text-brand-accent/85 max-w-2xl text-sm leading-relaxed font-light">
+          Randevunuz alındı.
+        </p>
+        <p class="text-brand-accent/70 max-w-2xl text-sm leading-relaxed font-light">
+          Randevu detaylarınızı içeren onay e-postasını Calendly üzerinden alacaksınız.
+          Ödemeniz tamamlandığında randevunuz kesinleşir. Görüşmek üzere!
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <LinkButton href="/hizmetler" target="_self" text="Hizmetlere dön" variant="ghost" />
+      </div>
+    </div>
+  </PageWrapper>
+</Layout>
+
+<script>
+  try {
+    const raw = localStorage.getItem("lastBooking");
+    if (raw) {
+      const booking = JSON.parse(raw);
+      if (booking?.title) {
+        const summary = document.getElementById("booking-summary");
+        if (summary) {
+          summary.textContent = `${booking.title} için randevunuz alındı.`;
+        }
+      }
+    }
+  } catch {
+    // No/invalid breadcrumb — keep the generic confirmation message.
+  }
+</script>

@@ -1,0 +1,120 @@
+---
+import PageWrapper from "../../components/page-wrapper.astro";
+import Layout from "../../layouts/base-layout.astro";
+import LinkButton from "../../components/link-button.astro";
+import BookingSteps from "../../components/booking-steps.astro";
+import { services } from "../../data/services";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+// All services share a single Calendly event type for now. The slug is passed as
+// utm_content so each booking record shows which service was chosen — swap
+// CALENDAR_URL for a per-service event type later by moving it into the service data.
+const calendlyUrl = `${import.meta.env.CALENDAR_URL}?utm_content=${service.slug}`;
+---
+
+<Layout title={`Randevu — ${service.title}`}>
+  <PageWrapper active="services">
+    <div class="animate-fade-in-up flex flex-col gap-6">
+      <div class="flex flex-col gap-3">
+        <a
+          href="/hizmetler"
+          class="text-brand-accent/70 hover:text-brand-accent text-xs font-light tracking-widest uppercase transition"
+        >
+          ← Hizmetler
+        </a>
+        <h1 class="text-brand-secondary text-2xl font-bold tracking-wide uppercase">
+          {service.title}
+        </h1>
+        <div class="flex items-center gap-3">
+          <p class="text-brand-accent/60 text-xs font-light tracking-widest uppercase">
+            {service.duration}
+          </p>
+          <span class="bg-brand-accent/10 text-brand-secondary border-brand-accent/25 inline-flex items-baseline gap-0.5 rounded-sm border px-2.5 py-1">
+            <span class="font-sans-headline text-sm font-semibold tracking-wide">{service.price}</span>
+            <span class="text-brand-accent/70 text-[10px] font-light tracking-wider uppercase">tl</span>
+          </span>
+        </div>
+        <p class="text-brand-accent/85 max-w-2xl text-sm leading-relaxed font-light">
+          Aşağıdan size uygun tarih ve saati seçin. Seçtiğiniz saat, ödemeniz tamamlanana
+          kadar geçici olarak ayrılır — onayın ardından otomatik olarak ödeme sayfasına
+          yönlendirileceksiniz.
+        </p>
+      </div>
+
+      <BookingSteps current={1} />
+
+      <div
+        id="booking"
+        data-shopier-url={service.shopierUrl}
+        data-slug={service.slug}
+        data-title={service.title}
+        class="calendly-inline-widget overflow-hidden rounded-sm"
+        data-url={calendlyUrl}
+        style="min-width:320px;height:1000px;"
+      >
+      </div>
+
+      <noscript>
+        <div class="flex flex-col gap-3">
+          <p class="text-brand-accent/85 text-sm font-light">
+            Randevu takvimini görüntülemek için JavaScript'i etkinleştirin. Hizmeti doğrudan
+            satın almak için aşağıdaki bağlantıyı kullanabilirsiniz.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <LinkButton
+              href={service.shopierUrl}
+              text="Satın alma sayfasına git"
+              variant="ghost"
+            />
+          </div>
+        </div>
+      </noscript>
+    </div>
+
+    <script
+      is:inline
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async></script>
+  </PageWrapper>
+</Layout>
+
+<script>
+  const booking = document.getElementById("booking");
+  const shopierUrl = booking?.dataset.shopierUrl;
+
+  function isCalendlyEvent(e: MessageEvent) {
+    return (
+      e.origin === "https://calendly.com" &&
+      typeof e.data?.event === "string" &&
+      e.data.event.indexOf("calendly.") === 0
+    );
+  }
+
+  window.addEventListener("message", (e) => {
+    if (isCalendlyEvent(e) && e.data.event === "calendly.event_scheduled" && shopierUrl) {
+      // Leave a breadcrumb so /tesekkurler can show which service was booked
+      // once the customer returns from paying on Shopier.
+      try {
+        localStorage.setItem(
+          "lastBooking",
+          JSON.stringify({
+            slug: booking?.dataset.slug,
+            title: booking?.dataset.title,
+            ts: new Date().toISOString(),
+          }),
+        );
+      } catch {
+        // localStorage unavailable (private mode / blocked) — redirect anyway.
+      }
+      window.location.href = shopierUrl;
+    }
+  });
+</script>
